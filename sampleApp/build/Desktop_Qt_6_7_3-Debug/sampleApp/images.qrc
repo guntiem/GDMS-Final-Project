@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>OCRtestingimages/alert.png</file>
+        <file>OCRtestingimages/bg.png</file>
+        <file>OCRtestingimages/end_call.png</file>
+        <file>OCRtestingimages/headphones.png</file>
+        <file>OCRtestingimages/image003.png</file>
+        <file>OCRtestingimages/locked.png</file>
+        <file>OCRtestingimages/mute.png</file>
+        <file>OCRtestingimages/no_notif.png</file>
+        <file>OCRtestingimages/pause.png</file>
+        <file>OCRtestingimages/unlocked.png</file>
+        <file>OCRtestingimages/video.png</file>
+        <file>OCRtestingimages/voicemail.png</file>
+    </qresource>
+</RCC>
