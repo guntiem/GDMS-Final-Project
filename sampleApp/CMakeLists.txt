@@ -21,6 +21,7 @@ qt_add_qml_module(appsampleApp
     VERSION 1.0
     QML_FILES
         Main.qml
+        OCRMenuTesting.qml
         RESOURCES images.qrc
 )
 

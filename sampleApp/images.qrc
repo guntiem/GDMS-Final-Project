@@ -1,16 +1,19 @@
 <RCC>
     <qresource prefix="/">
-        <file>OCRtestingimages/alert.png</file>
-        <file>OCRtestingimages/bg.png</file>
-        <file>OCRtestingimages/end_call.png</file>
-        <file>OCRtestingimages/headphones.png</file>
-        <file>OCRtestingimages/image003.png</file>
-        <file>OCRtestingimages/locked.png</file>
-        <file>OCRtestingimages/mute.png</file>
-        <file>OCRtestingimages/no_notif.png</file>
-        <file>OCRtestingimages/pause.png</file>
-        <file>OCRtestingimages/unlocked.png</file>
-        <file>OCRtestingimages/video.png</file>
-        <file>OCRtestingimages/voicemail.png</file>
+        <file>assets/OCRtestingimages/alert.png</file>
+        <file>assets/OCRtestingimages/bg.png</file>
+        <file>assets/OCRtestingimages/end_call.png</file>
+        <file>assets/OCRtestingimages/headphones.png</file>
+        <file>assets/OCRtestingimages/image003.png</file>
+        <file>assets/OCRtestingimages/locked.png</file>
+        <file>assets/OCRtestingimages/mute.png</file>
+        <file>assets/OCRtestingimages/no_notif.png</file>
+        <file>assets/OCRtestingimages/pause.png</file>
+        <file>assets/OCRtestingimages/unlocked.png</file>
+        <file>assets/OCRtestingimages/video.png</file>
+        <file>assets/OCRtestingimages/voicemail.png</file>
+        <file>assets/bg.png</file>
+        <file>assets/mainBg.png</file>
+        <file>OCRMenuTesting.qml</file>
     </qresource>
 </RCC>
