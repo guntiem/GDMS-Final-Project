@@ -2,4 +2,10 @@ module sampleApp
 typeinfo appsampleApp.qmltypes
 prefer :/qt/qml/sampleApp/
 Main 1.0 Main.qml
+OCRMenuTesting 1.0 OCRMenuTesting.qml
+LockScreen 1.0 LockScreen.qml
+ContactsScreen 1.0 ContactsScreen.qml
+HistoryScreen 1.0 HistoryScreen.qml
+PhoneScreen 1.0 PhoneScreen.qml
+SettingsScreen 1.0 SettingsScreen.qml
 

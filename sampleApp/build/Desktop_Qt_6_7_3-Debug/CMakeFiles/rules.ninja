@@ -17,7 +17,7 @@
 rule CXX_COMPILER__appsampleApp_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
-  command = ${LAUNCHER}${CODE_CHECK}/usr/bin/aarch64-linux-gnu-g++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  command = ${LAUNCHER}${CODE_CHECK}/usr/bin/g++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
   description = Building CXX object $out
 
 
@@ -25,7 +25,7 @@ rule CXX_COMPILER__appsampleApp_unscanned_Debug
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__appsampleApp_Debug
-  command = $PRE_LINK && /usr/bin/aarch64-linux-gnu-g++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
+  command = $PRE_LINK && /usr/bin/g++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /home/kadum/Qt/Tools/CMake/bin/cmake --regenerate-during-build -S/home/kadum/sampleApp -B/home/kadum/sampleApp/build/Desktop_Qt_6_7_3-Debug
+  command = /home/tony/Qt/Tools/CMake/bin/cmake --regenerate-during-build -S/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp -B/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Debug
   description = Re-running CMake...
   generator = 1
 
@@ -51,7 +51,7 @@ rule RERUN_CMAKE
 # Rule for cleaning additional files.
 
 rule CLEAN_ADDITIONAL
-  command = /home/kadum/Qt/Tools/CMake/bin/cmake -DCONFIG=$CONFIG -P CMakeFiles/clean_additional.cmake
+  command = /home/tony/Qt/Tools/CMake/bin/cmake -DCONFIG=$CONFIG -P CMakeFiles/clean_additional.cmake
   description = Cleaning additional files...
 
 
@@ -59,7 +59,7 @@ rule CLEAN_ADDITIONAL
 # Rule for cleaning all built files.
 
 rule CLEAN
-  command = /home/kadum/Qt/Tools/Ninja/ninja $FILE_ARG -t clean $TARGETS
+  command = /home/tony/Qt/Tools/Ninja/ninja $FILE_ARG -t clean $TARGETS
   description = Cleaning all built files...
 
 
@@ -67,6 +67,6 @@ rule CLEAN
 # Rule for printing all primary targets available.
 
 rule HELP
-  command = /home/kadum/Qt/Tools/Ninja/ninja -t targets
+  command = /home/tony/Qt/Tools/Ninja/ninja -t targets
   description = All primary targets available:
 

@@ -23,6 +23,11 @@ qt_add_qml_module(appsampleApp
         Main.qml
         OCRMenuTesting.qml
         RESOURCES images.qrc
+        QML_FILES LockScreen.qml
+        QML_FILES ContactsScreen.qml
+        QML_FILES HistoryScreen.qml
+        QML_FILES PhoneScreen.qml
+        QML_FILES SettingsScreen.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
