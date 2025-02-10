@@ -9,7 +9,6 @@ Window {
     title: qsTr("GDMS Sample Application")
 
     Image {
-        // source: "/assets/mainBg.png"
         source: "/assets/bg.png"
         anchors.fill: parent
         fillMode: Image.PreserveAspectCrop
@@ -20,18 +19,61 @@ Window {
         anchors.fill: parent
     }
 
+    Text {
+        text: "Home"
+        font.pointSize: 16
+        color: "white"
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: parent.top
+        anchors.topMargin: 20
+        visible: pageLoader.source == ""
+    }
+
+    Column {
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+        spacing: 10
+        visible: pageLoader.source == ""
+
+        Text {
+            id: currentTime
+            font.pointSize: 54
+            color: "white"
+            horizontalAlignment: Text.AlignHCenter
+            text: Qt.formatDateTime(new Date(), "hh:mm")
+        }
+
+        Text {
+            id: currentDate
+            font.pointSize: 30
+            color: "white"
+            horizontalAlignment: Text.AlignHCenter
+            text: Qt.formatDateTime(new Date(), "dd MMMM yyyy")
+        }
+
+        Timer {
+            interval: 1000
+            running: true
+            repeat: true
+            onTriggered: {
+                var now = new Date();
+                currentTime.text = Qt.formatDateTime(now, "hh:mm")
+                currentDate.text = Qt.formatDateTime(now, "dd MMMM yyyy")
+            }
+        }
+    }
+
     RowLayout {
 
         id: buttonRow
-        // Loader { id: pageLoader }
 
         height: 100
 
         anchors {
-                horizontalCenter: parent.horizontalCenter
-                top: parent.top
-                topMargin: 360
-            }
+            horizontalCenter: parent.horizontalCenter
+            top: parent.top
+            topMargin: 360
+        }
         spacing: 25
 
         // Lock button
@@ -48,7 +90,6 @@ Window {
                 fillMode: Image.PreserveAspectFit
             }
 
-            clip: true
             radius: width / 2
 
             onClicked: {
@@ -72,7 +113,6 @@ Window {
                 fillMode: Image.PreserveAspectFit
             }
 
-            clip: true
             radius: width / 2
 
             onClicked: {
@@ -96,7 +136,6 @@ Window {
                 fillMode: Image.PreserveAspectFit
             }
 
-            clip: true
             radius: width / 2
 
             onClicked: {
@@ -120,7 +159,6 @@ Window {
                 fillMode: Image.PreserveAspectFit
             }
 
-            clip: true
             radius: width / 2
 
             onClicked: {
@@ -144,7 +182,6 @@ Window {
                 fillMode: Image.PreserveAspectFit
             }
 
-            clip: true
             radius: width / 2
 
             onClicked: {
@@ -168,7 +205,6 @@ Window {
                 fillMode: Image.PreserveAspectFit
             }
 
-            clip: true
             radius: width / 2
 
             onClicked: {
