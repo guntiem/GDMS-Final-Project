@@ -1,13 +1,13 @@
 <RCC>
   <qresource prefix="/qt/qml/sampleApp/">
-    <file alias="Main.qml">/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/Main.qml</file>
-    <file alias="OCRMenuTesting.qml">/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/OCRMenuTesting.qml</file>
-    <file alias="LockScreen.qml">/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/LockScreen.qml</file>
-    <file alias="ContactsScreen.qml">/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/ContactsScreen.qml</file>
-    <file alias="HistoryScreen.qml">/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/HistoryScreen.qml</file>
-    <file alias="PhoneScreen.qml">/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/PhoneScreen.qml</file>
-    <file alias="SettingsScreen.qml">/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/SettingsScreen.qml</file>
-    <file alias="images.qrc">/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/images.qrc</file>
+    <file alias="Main.qml">/home/egunti/GDMS-Final-Project/sampleApp/Main.qml</file>
+    <file alias="OCRMenuTesting.qml">/home/egunti/GDMS-Final-Project/sampleApp/OCRMenuTesting.qml</file>
+    <file alias="LockScreen.qml">/home/egunti/GDMS-Final-Project/sampleApp/LockScreen.qml</file>
+    <file alias="ContactsScreen.qml">/home/egunti/GDMS-Final-Project/sampleApp/ContactsScreen.qml</file>
+    <file alias="HistoryScreen.qml">/home/egunti/GDMS-Final-Project/sampleApp/HistoryScreen.qml</file>
+    <file alias="PhoneScreen.qml">/home/egunti/GDMS-Final-Project/sampleApp/PhoneScreen.qml</file>
+    <file alias="SettingsScreen.qml">/home/egunti/GDMS-Final-Project/sampleApp/SettingsScreen.qml</file>
+    <file alias="images.qrc">/home/egunti/GDMS-Final-Project/sampleApp/images.qrc</file>
   </qresource>
 </RCC>
 

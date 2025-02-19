@@ -1,7 +1,7 @@
 --resource
-/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Debug/.qt/rcc/qmake_sampleApp.qrc
+/home/egunti/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Debug/.qt/rcc/qmake_sampleApp.qrc
 --resource
-/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Debug/.qt/rcc/appsampleApp_raw_qml_0.qrc
+/home/egunti/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Debug/.qt/rcc/appsampleApp_raw_qml_0.qrc
 /qt/qml/sampleApp/Main.qml
 /qt/qml/sampleApp/OCRMenuTesting.qml
 /qt/qml/sampleApp/LockScreen.qml
