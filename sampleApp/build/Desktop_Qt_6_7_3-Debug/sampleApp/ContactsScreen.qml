@@ -34,7 +34,6 @@ Page {
         onClicked: {
             onClicked: pageLoader.source = ""
             buttonRow.visible = true
-            // onClicked: pageLoader.source = "Main.qml"
             console.log("Back to Main Menu")
         }
     }

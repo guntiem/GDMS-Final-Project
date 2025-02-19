@@ -1,4 +1,4 @@
-# Install script for directory: /home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp
+# Install script for directory: /home/egunti/GDMS-Final-Project/sampleApp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/usr/bin/objdump")
+  set(CMAKE_OBJDUMP "/usr/bin/aarch64-linux-gnu-objdump")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -49,15 +49,15 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/appsampleApp"
          RPATH "\$ORIGIN:\$ORIGIN/../lib")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Debug/appsampleApp")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/egunti/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Debug/appsampleApp")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/appsampleApp" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/appsampleApp")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/appsampleApp"
-         OLD_RPATH "/home/tony/Qt/6.7.3/gcc_arm64/lib:"
+         OLD_RPATH "/home/egunti/Qt/6.7.3/gcc_arm64/lib:"
          NEW_RPATH "\$ORIGIN:\$ORIGIN/../lib")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/appsampleApp")
+      execute_process(COMMAND "/usr/bin/aarch64-linux-gnu-strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/appsampleApp")
     endif()
   endif()
 endif()
@@ -70,5 +70,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/egunti/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

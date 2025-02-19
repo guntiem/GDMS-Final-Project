@@ -1,6 +1,6 @@
 <RCC>
   <qresource prefix="/qt/qml/sampleApp">
-    <file alias="qmldir">/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Debug/sampleApp/qmldir</file>
+    <file alias="qmldir">/home/egunti/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Debug/sampleApp/qmldir</file>
   </qresource>
 </RCC>
 
