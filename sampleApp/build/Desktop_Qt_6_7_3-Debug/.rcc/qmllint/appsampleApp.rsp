@@ -1,0 +1,16 @@
+--bare
+-I
+/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Debug
+-I
+/home/tony/Qt/6.7.3/gcc_arm64/qml
+--resource
+/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Debug/.qt/rcc/qmake_sampleApp.qrc
+--resource
+/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Debug/.qt/rcc/appsampleApp_raw_qml_0.qrc
+/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/Main.qml
+/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/OCRMenuTesting.qml
+/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/LockScreen.qml
+/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/ContactsScreen.qml
+/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/HistoryScreen.qml
+/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/PhoneScreen.qml
+/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/SettingsScreen.qml

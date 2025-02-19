@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Layouts
 
 Window {
     width: 850
@@ -8,181 +9,211 @@ Window {
     title: qsTr("GDMS Sample Application")
 
     Image {
-        source: "/OCRtestingimages/bg.png"
+        source: "/assets/bg.png"
         anchors.fill: parent
         fillMode: Image.PreserveAspectCrop
     }
 
-    Item {
-        //LayoutMirroring.enabled: true
-        anchors.right: parent.right
-
-        Row {
-            anchors.fill: parent
-            LayoutMirroring.enabled: true
-            //layoutDirection: Qt.RightToLeft
-
-            Image {
-                id: alertIcon
-                source: "/OCRtestingimages/alert.png"
-                visible: alertIconEnable.checked
-                width: 30
-                height: 30
-            }
-            Image {
-                id: headphoneIcon
-                source: "/OCRtestingimages/headphones.png"
-                visible: headphoneIconEnable.checked
-                width: 30
-                height: 30
-            }
-            Image {
-                id: lockedIcon
-                source: "/OCRtestingimages/locked.png"
-                visible: lockedIconEnable.checked
-                width: 30
-                height: 30
-            }
-            Image {
-                id: muteIcon
-                source: "/OCRtestingimages/mute.png"
-                visible: muteIconEnable.checked
-                width: 30
-                height: 30
-            }
-            Image {
-                id: pauseIcon
-                source: "/OCRtestingimages/pause.png"
-                visible: pauseIconEnable.checked
-                width: 30
-                height: 30
-            }
-            Image {
-                id: videoIcon
-                source: "/OCRtestingimages/video.png"
-                visible: videoIconEnable.checked
-                width: 30
-                height: 30
-            }
-            Image {
-                id: voicemailIcon
-                source: "/OCRtestingimages/voicemail.png"
-                visible: voicemailIconEnable.checked
-                width: 30
-                height: 30
-            }
-        }
-    }
-
-    Item {
+    Loader {
+        id: pageLoader
         anchors.fill: parent
-        anchors.margins: 50
+    }
 
-        Column {
+    Text {
+        text: "Home"
+        font.pointSize: 16
+        color: "white"
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: parent.top
+        anchors.topMargin: 20
+        visible: pageLoader.source == ""
+    }
 
-            Text {
-                text: "Icons to display:"
-                font.pointSize: 14
-                color: "white" // Change text color for visibility
-                // horizontalAlignment: Text.AlignHCenter
-            }
+    Column {
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+        spacing: 10
+        visible: pageLoader.source == ""
 
-            CheckBox {
-                id: alertIconEnable
-                text: "Alert"
-                checked: false
+        Text {
+            id: currentTime
+            font.pointSize: 54
+            color: "white"
+            horizontalAlignment: Text.AlignHCenter
+            text: Qt.formatDateTime(new Date(), "hh:mm")
+        }
 
-                onCheckedChanged: {
-                    if (checked) {
-                        console.log("Alert icon displayed.")
-                    } else {
-                        console.log("Alert icon hidden.")
-                    }
-                }
-            }
+        Text {
+            id: currentDate
+            font.pointSize: 30
+            color: "white"
+            horizontalAlignment: Text.AlignHCenter
+            text: Qt.formatDateTime(new Date(), "dd MMMM yyyy")
+        }
 
-            CheckBox {
-                id: headphoneIconEnable
-                text: "Headphone"
-                checked: false
-
-                onCheckedChanged: {
-                    if (checked) {
-                        console.log("Headphone icon displayed.")
-                    } else {
-                        console.log("Headphone icon hidden.")
-                    }
-                }
-            }
-
-            CheckBox {
-                id: lockedIconEnable
-                text: "Locked"
-                checked: false
-
-                onCheckedChanged: {
-                    if (checked) {
-                        console.log("Locked icon displayed.")
-                    } else {
-                        console.log("Locked icon hidden.")
-                    }
-                }
-            }
-
-            CheckBox {
-                id: muteIconEnable
-                text: "Mute"
-                checked: false
-
-                onCheckedChanged: {
-                    if (checked) {
-                        console.log("Mute icon displayed.")
-                    } else {
-                        console.log("Mute icon hidden.")
-                    }
-                }
-            }
-
-            CheckBox {
-                id: pauseIconEnable
-                text: "Pause"
-                checked: false
-
-                onCheckedChanged: {
-                    if (checked) {
-                        console.log("Pause icon displayed.")
-                    } else {
-                        console.log("Pause icon hidden.")
-                    }
-                }
-            }
-
-            CheckBox {
-                id: videoIconEnable
-                text: "Video"
-                checked: false
-
-                onCheckedChanged: {
-                    if (checked) {
-                        console.log("Video icon displayed.")
-                    } else {
-                        console.log("Video icon hidden.")
-                    }
-                }
-            }
-            CheckBox {
-                id: voicemailIconEnable
-                text: "Voicemail"
-                checked: false
-
-                onCheckedChanged: {
-                    if (checked) {
-                        console.log("Voicemail icon displayed.")
-                    } else {
-                        console.log("Voicemail icon hidden.")
-                    }
-                }
+        Timer {
+            interval: 1000
+            running: true
+            repeat: true
+            onTriggered: {
+                var now = new Date();
+                currentTime.text = Qt.formatDateTime(now, "hh:mm")
+                currentDate.text = Qt.formatDateTime(now, "dd MMMM yyyy")
             }
         }
     }
+
+    RowLayout {
+
+        id: buttonRow
+
+        height: 100
+
+        anchors {
+            horizontalCenter: parent.horizontalCenter
+            top: parent.top
+            topMargin: 360
+        }
+        spacing: 25
+
+        // Lock button
+        RoundButton {
+            text: ""
+            display: AbstractButton.IconOnly
+
+            Layout.preferredWidth: 85
+            Layout.preferredHeight: 85
+
+            background: Image {
+                anchors.fill: parent
+                source: "/assets/lock_screen_button.png"
+                fillMode: Image.PreserveAspectFit
+            }
+
+            radius: width / 2
+
+            onClicked: {
+                pageLoader.source = "LockScreen.qml"
+                buttonRow.visible = false
+                console.log("Lock Screen Page Loaded.")
+            }
+        }
+
+        // Contacts button
+        RoundButton {
+            text: ""
+            display: AbstractButton.IconOnly
+
+            Layout.preferredWidth: 85
+            Layout.preferredHeight: 85
+
+            background: Image {
+                anchors.fill: parent
+                source: "/assets/contact_screen_button.png"
+                fillMode: Image.PreserveAspectFit
+            }
+
+            radius: width / 2
+
+            onClicked: {
+                pageLoader.source = "ContactsScreen.qml"
+                buttonRow.visible = false
+                console.log("Contacts Page Loaded.")
+            }
+        }
+
+        // Call history button
+        RoundButton {
+            text: ""
+            display: AbstractButton.IconOnly
+
+            Layout.preferredWidth: 85
+            Layout.preferredHeight: 85
+
+            background: Image {
+                anchors.fill: parent
+                source: "/assets/call_history_screen_button.png"
+                fillMode: Image.PreserveAspectFit
+            }
+
+            radius: width / 2
+
+            onClicked: {
+                pageLoader.source = "HistoryScreen.qml"
+                buttonRow.visible = false
+                console.log("Call History Page Loaded.")
+            }
+        }
+
+        // Call button
+        RoundButton {
+            text: ""
+            display: AbstractButton.IconOnly
+
+            Layout.preferredWidth: 85
+            Layout.preferredHeight: 85
+
+            background: Image {
+                anchors.fill: parent
+                source: "/assets/call_button.png"
+                fillMode: Image.PreserveAspectFit
+            }
+
+            radius: width / 2
+
+            onClicked: {
+                pageLoader.source = "PhoneScreen.qml"
+                buttonRow.visible = false
+                console.log("Call Page Loaded.")
+            }
+        }
+
+        // Settings button
+        RoundButton {
+            text: ""
+            display: AbstractButton.IconOnly
+
+            Layout.preferredWidth: 85
+            Layout.preferredHeight: 85
+
+            background: Image {
+                anchors.fill: parent
+                source: "/assets/settings_button.png"
+                fillMode: Image.PreserveAspectFit
+            }
+
+            radius: width / 2
+
+            onClicked: {
+                pageLoader.source = "SettingsScreen.qml"
+                buttonRow.visible = false
+                console.log("Settings Page Loaded.")
+            }
+        }
+
+        // Info button
+        RoundButton {
+            text: ""
+            display: AbstractButton.IconOnly
+
+            Layout.preferredWidth: 85
+            Layout.preferredHeight: 85
+
+            background: Image {
+                anchors.fill: parent
+                source: "/assets/info_screen_button.png"
+                fillMode: Image.PreserveAspectFit
+            }
+
+            radius: width / 2
+
+            onClicked: {
+                pageLoader.source = "OCRMenuTesting.qml"
+                buttonRow.visible = false
+                console.log("Page Loaded.")
+            }
+        }
+
+    }
+
 }
