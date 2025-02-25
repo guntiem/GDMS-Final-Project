@@ -7,12 +7,14 @@ Page {
     visible: true
     title: "OCR Testing Page"
 
+    // Background image
     Image {
         source: "/assets/bg.png"
         anchors.fill: parent
         fillMode: Image.PreserveAspectCrop
     }
 
+    // Menu dislaying the icons
     Item {
         //LayoutMirroring.enabled: true
         anchors.right: parent.right
@@ -74,6 +76,7 @@ Page {
         }
     }
 
+    //List to toggle icons displayed
     Item {
         id: iconSelect
         anchors.fill: parent
@@ -186,6 +189,35 @@ Page {
             }
         }
     }
+
+    Item {
+        id: textTesting
+        anchors.fill: parent
+        anchors.margins: 50
+        anchors.leftMargin: 300
+        width: 400  // Set the width of the container item
+
+        Text {
+            id: firstText
+            text: qsTr("This is filler text to use to test the OCR engine's text verification:
+
+UPPERCASE lowercase MiXeD cAsE
+
+1234567890 ０１２３４５６７８９(Full-width numbers)
+
+!@#$%^&*()_+-=[]{}|;:'\",.<>?/ (Special characters)
+
+Il1| O0Q (Similar-looking characters)
+
+ﬁﬂﬃﬄ (Ligatures)
+")
+            font.pointSize: 14
+            color: "white"
+            wrapMode: Text.Wrap  // Enable word wrapping to prevent overflow
+            width: parent.width  // Ensure the text wraps based on the width of the parent
+        }
+    }
+
 
     Button {
         anchors.left: parent.left
