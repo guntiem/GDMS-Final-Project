@@ -11,9 +11,9 @@ Image and text recognition in Squish uses the open-source OCR engine **Tesseract
     * [Setup FAQ](#environment-setup-faq)
 2. [Creating Tests](#creating-test-cases)
     * [Useful OCR and Image APIs](#useful-apis)
-    * [Examples and Templates](#template--example-test)
-    * [Adding images to find](#adding-images)
-3. Error Logging
+    * [Adding reference images](#adding-images)
+3. [Examples and Templates](#template--example-test)
+<!-- 3. Error Logging -->
 
 5. [Notes\/Resources](#notes)
 
@@ -76,21 +76,25 @@ The simplest way developers can begin creating their image-based verification te
 See [this page](https://doc.qt.io/squish/squish-api.html) to find a more comprehensive list of functions to use in this process.
 
 ### Adding Images
+These images will be the source of reference while creating your test cases. After adding all of your images to a relative folder in the test suite, you will be able to select these images as pre-configure images when creating test cases using Squish's recording GUI. Additionally, when utilizing the test.ImagePresent function, the image file names will pre-populate for ease of use. 
+
 ![alt text](readmeMedia/addingImageTest.gif)
 1. Option 1: Add images to locate during test case recording:
 2. Option 2: If you have .pngs or comparable files already stored in your filesystem, you can speed up the image verification process by adding those images to the shared testSuite folder in your project. 
     * For example, in this project, you would add the icons to verify in: _GDMS-Final-Project/testSuites/suite_imageBasedTesting/shared/searchImages/<image-name.png>_ and use _image-name_ in the test.imagePresent() API. 
 
-### Template & Example Test
-The template provided in the respective testSuite include examples of 
+## Template & Example Test
+The templates provided in the respective testSuite include examples of 
 
+1. Full test case example
+2. Region Testing
+3. Error logging
 
-## Error Logging
+<!-- ## Error Logging
 
 ### Screenshots upon test pass/fail
 
-### Verbosity
-
+### Verbosity -->
 
 ## Notes
 
