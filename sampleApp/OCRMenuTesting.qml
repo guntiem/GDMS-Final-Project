@@ -214,7 +214,7 @@ Il1| O0Q (Similar-looking characters)
             font.pointSize: 14
             color: "white"
             wrapMode: Text.Wrap  // Enable word wrapping to prevent overflow
-            width: parent.width  // Ensure the text wraps based on the width of the parent
+            width: parent.width
         }
     }
 
