@@ -1,2 +1,2 @@
-set(__QT_DEPLOY_TARGET_appsampleApp_FILE /home/egunti/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Debug/appsampleApp)
+set(__QT_DEPLOY_TARGET_appsampleApp_FILE /home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Debug/appsampleApp)
 set(__QT_DEPLOY_TARGET_appsampleApp_TYPE EXECUTABLE)

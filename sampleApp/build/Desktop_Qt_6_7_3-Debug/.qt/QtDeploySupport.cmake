@@ -27,14 +27,14 @@ if(QT_DEPLOY_PREFIX STREQUAL "")
     set(QT_DEPLOY_PREFIX .)
 endif()
 if(NOT QT_DEPLOY_IGNORED_LIB_DIRS)
-    set(QT_DEPLOY_IGNORED_LIB_DIRS "/usr/lib/gcc/aarch64-linux-gnu/14;/usr/lib/aarch64-linux-gnu;/usr/lib;/lib/aarch64-linux-gnu;/lib")
+    set(QT_DEPLOY_IGNORED_LIB_DIRS "/usr/lib/gcc/aarch64-linux-gnu/11;/usr/lib/aarch64-linux-gnu;/usr/lib;/lib/aarch64-linux-gnu;/lib")
 endif()
 
 # These are internal implementation details. They may be removed at any time.
 set(__QT_DEPLOY_SYSTEM_NAME "Linux")
 set(__QT_DEPLOY_IS_SHARED_LIBS_BUILD "ON")
 set(__QT_DEPLOY_TOOL "GRD")
-set(__QT_DEPLOY_IMPL_DIR "/home/egunti/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Debug/.qt")
+set(__QT_DEPLOY_IMPL_DIR "/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Debug/.qt")
 set(__QT_DEPLOY_VERBOSE "")
 set(__QT_CMAKE_EXPORT_NAMESPACE "Qt6")
 set(__QT_DEPLOY_GENERATOR_IS_MULTI_CONFIG "0")
@@ -42,13 +42,13 @@ set(__QT_DEPLOY_ACTIVE_CONFIG "Debug")
 set(__QT_NO_CREATE_VERSIONLESS_FUNCTIONS "")
 set(__QT_DEFAULT_MAJOR_VERSION "6")
 set(__QT_DEPLOY_QT_ADDITIONAL_PACKAGES_PREFIX_PATH "")
-set(__QT_DEPLOY_QT_INSTALL_PREFIX "/home/egunti/Qt/6.7.3/gcc_arm64")
+set(__QT_DEPLOY_QT_INSTALL_PREFIX "/home/tony/Qt/6.7.3/gcc_arm64")
 set(__QT_DEPLOY_QT_INSTALL_BINS "bin")
 set(__QT_DEPLOY_QT_INSTALL_DATA ".")
 set(__QT_DEPLOY_QT_INSTALL_LIBEXECS "libexec")
 set(__QT_DEPLOY_QT_INSTALL_PLUGINS "plugins")
 set(__QT_DEPLOY_QT_INSTALL_TRANSLATIONS "translations")
-set(__QT_DEPLOY_TARGET_QT_PATHS_PATH "/home/egunti/Qt/6.7.3/gcc_arm64/bin/qtpaths6")
+set(__QT_DEPLOY_TARGET_QT_PATHS_PATH "/home/tony/Qt/6.7.3/gcc_arm64/bin/qtpaths6")
 set(__QT_DEPLOY_PLUGINS "")
 set(__QT_DEPLOY_MUST_ADJUST_PLUGINS_RPATH "")
 set(__QT_DEPLOY_USE_PATCHELF "")
@@ -58,9 +58,9 @@ set(__QT_DEPLOY_QT_DEBUG_POSTFIX "")
 
 # Define the CMake commands to be made available during deployment.
 set(__qt_deploy_support_files
-    "/home/egunti/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Debug/.qt/QtDeployTargets.cmake"
-    "/home/egunti/Qt/6.7.3/gcc_arm64/lib/cmake/Qt6Core/Qt6CoreDeploySupport.cmake"
-    "/home/egunti/Qt/6.7.3/gcc_arm64/lib/cmake/Qt6Qml/Qt6QmlDeploySupport.cmake"
+    "/home/tony/Desktop/final_application/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Debug/.qt/QtDeployTargets.cmake"
+    "/home/tony/Qt/6.7.3/gcc_arm64/lib/cmake/Qt6Core/Qt6CoreDeploySupport.cmake"
+    "/home/tony/Qt/6.7.3/gcc_arm64/lib/cmake/Qt6Qml/Qt6QmlDeploySupport.cmake"
 )
 foreach(__qt_deploy_support_file IN LISTS __qt_deploy_support_files)
     include("${__qt_deploy_support_file}")
