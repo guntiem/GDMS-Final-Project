@@ -13,3 +13,5 @@ gDMS_Sample_Application_Headphone_CheckBox = {"checkable": True, "container": gD
 gDMS_Sample_Application_Alert_CheckBox = {"checkable": True, "container": gDMS_Sample_Application_QQuickWindowQmlImpl, "id": "alertIconEnable", "text": "Alert", "type": "CheckBox", "unnamed": 1, "visible": True}
 gDMS_Sample_Application_ColorImage = {"container": gDMS_Sample_Application_QQuickWindowQmlImpl, "source": "qrc:/qt-project.org/imports/QtQuick/Controls/Fusion/images/checkmark.png", "type": "ColorImage", "unnamed": 1, "visible": True}
 gDMS_Sample_Application_Image = {"container": gDMS_Sample_Application_QQuickWindowQmlImpl, "source": "/assets/bg.png", "type": "Image", "unnamed": 1, "visible": True}
+gDMS_Sample_Application_Back_Button = {"checkable": False, "container": gDMS_Sample_Application_QQuickWindowQmlImpl, "text": "Back", "type": "Button", "unnamed": 1, "visible": True}
+gDMS_Sample_Application_Rectangle = {"color": "#000000", "container": gDMS_Sample_Application_QQuickWindowQmlImpl, "occurrence": 2, "type": "Rectangle", "unnamed": 1, "visible": True}

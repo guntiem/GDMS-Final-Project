@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-''' NOTES:
+''' TEMPLATE NOTES:
     - reduce screen area by object to reduce visual noise > increase OCR validity (https://qatools.knowledgebase.qt.io/squish/integrations/ocr-engines/ocr-limitations/)
 '''
 
@@ -13,24 +13,19 @@ def findText(text):
         screenshot_name = f"ocr_for_{text}_fail.png"
         save_screenshot(screenshot_name)
         
-        test.log(f"Screenshot taken. Failed OCR verification: {text}")
-        
+        test.log(f"Screenshot taken. Failed OCR verification for: {text}")
     return
         
     
 def runTestRecording():
     startApplication("appsampleApp")
-    mouseWheel(waitForObject(names.scrollView_toggle_CustomSwitch), 19, 35, 0, -30, Qt.NoModifier)
-    mouseWheel(waitForObject(names.scrollView_Flickable), 494, 57, 0, -735, Qt.NoModifier)
+    mouseClick(waitForObject(names.gDMS_Sample_Application_RoundButton), 42, 39, Qt.LeftButton)
+    
     snooze(5) # NOTE: Need to include snooze after every GUI interaction for consisted expected output logging
     
     # Insert ocr text verification, and add logic to create the test pass/fail criteria
-    findText("Kitchen") # can toggle for testing
-    findText("Bedroom")
-    findText("capstone")
+    findText("12345678") # can toggle for testing
     
-    closeWindow(names.thermostat_QQuickWindowQmlImpl)
-
 
 def main():
     # setUp()

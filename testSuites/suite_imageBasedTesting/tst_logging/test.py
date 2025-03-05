@@ -37,7 +37,7 @@ def save_screenshot(filename):
     # img.save(filename)
     # testData.get(filename)
     
-    screenshot_dir = '/home/kadum/GDMS-Capstone/suite_ocr_testing/tst_screenshotting'
+    screenshot_dir = '/home/kadum/GDMS-Final-Project/testSuites/suite_imageBasedTesting'
     if not os.path.exists(screenshot_dir):
         os.makedirs(screenshot_dir)
     
@@ -63,27 +63,36 @@ def findText(text):
         test.log(f"Screenshot taken. Failed OCR verification: {text}")
         
     return
-        
+
+
+# Sample usage of full display testing using saved image files from local saved directory                                                                                               # This is 
+def verifyMenuIcon(icon_name):
+    test.imagePresent(f'{icon_name}', {'tolerant': True, 
+                                       'multiscale': True, 
+                                       'threshold': 99.5})
     
-def runTestRecording():
-    startApplication("ThermostatApp")
-    mouseWheel(waitForObject(names.scrollView_toggle_CustomSwitch), 19, 35, 0, -30, Qt.NoModifier)
-    mouseWheel(waitForObject(names.scrollView_Flickable), 494, 57, 0, -735, Qt.NoModifier)
-    snooze(5) # NOTE: Need to include snooze after every GUI interaction for consisted expected output logging
     
-    # Insert ocr text verification, and add logic to create the test pass/fail criteria
-    findText("Kitchen") # can toggle for testing
-    findText("Bedroom")
-    findText("capstone")
+def runApplication():
+    startApplication("appsampleApp")
     
-    closeWindow(names.thermostat_QQuickWindowQmlImpl)
+    # Entering relevant App page
+    mouseClick(waitForObject(names.gDMS_Sample_Application_RoundButton), 46, 50, Qt.LeftButton)
+    
+    # displaying all icons available 
+    mouseClick(waitForObject(names.gDMS_Sample_Application_Alert_CheckBox), 12, 11, Qt.LeftButton)
+    mouseClick(waitForObject(names.gDMS_Sample_Application_Headphone_CheckBox), 12, 17, Qt.LeftButton)
+    mouseClick(waitForObject(names.gDMS_Sample_Application_Locked_CheckBox), 12, 6, Qt.LeftButton)
+    mouseClick(waitForObject(names.gDMS_Sample_Application_Mute_CheckBox), 13, 16, Qt.LeftButton)
+    mouseClick(waitForObject(names.gDMS_Sample_Application_Pause_CheckBox), 17, 12, Qt.LeftButton)
+    mouseClick(waitForObject(names.gDMS_Sample_Application_Video_CheckBox), 13, 17, Qt.LeftButton)
+    mouseClick(waitForObject(names.gDMS_Sample_Application_Voicemail_CheckBox), 13, 14, Qt.LeftButton)
 
 
 def main():
-    # setUp()
-    # Register AUT with squishserver:
-    # aut = "ThermostatApp"
-    # path = os.path.join('/home/kadum/Qt/Examples/Qt-6.7.3/demos/thermostat/build/Desktop_Qt_6_7_3-Debug')
-    # registerAUT(aut, path)
+    runApplication()
     
-    runTestRecording()
+    findText("12345678")
+    
+    verifyMenuIcon("mutedIcon")
+    verifyMenuIcon("pauseIcon")
+    verifyMenuIcon("videoIcon")
