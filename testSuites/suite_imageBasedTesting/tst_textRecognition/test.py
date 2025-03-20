@@ -6,6 +6,22 @@
 import names
 
 
+def save_screenshot(filename):
+    widget = waitForObject(names.thermostat_QQuickWindowQmlImpl)
+    img = object.grabScreenshot(widget)
+    
+    # img.save(filename)
+    # testData.get(filename)
+    
+    screenshot_dir = '/home/kadum/GDMS-Final-Project/testSuites/suite_imageBasedTesting'
+    if not os.path.exists(screenshot_dir):
+        os.makedirs(screenshot_dir)
+    
+    full_path = os.path.join(screenshot_dir, filename)
+    img.save(full_path)
+    testData.get(full_path)
+
+
 def findText(text):
     if test.ocrTextPresent(text, {"timeout": 1000}):
         test.passes(f"PASS: {text} text visible!")   
@@ -35,3 +51,5 @@ def main():
     # registerAUT(aut, path)
     
     runTestRecording()
+    test.ocrTextPresent("I@#$%*&*()_+-=[]{}|;:\"\",.<>?/", {}, 
+                        waitForObjectExists(names.gDMS_Sample_Application_QQuickWindowQmlImpl));

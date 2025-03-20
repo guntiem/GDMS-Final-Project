@@ -15,3 +15,7 @@ gDMS_Sample_Application_ColorImage = {"container": gDMS_Sample_Application_QQuic
 gDMS_Sample_Application_Image = {"container": gDMS_Sample_Application_QQuickWindowQmlImpl, "source": "/assets/bg.png", "type": "Image", "unnamed": 1, "visible": True}
 gDMS_Sample_Application_Back_Button = {"checkable": False, "container": gDMS_Sample_Application_QQuickWindowQmlImpl, "text": "Back", "type": "Button", "unnamed": 1, "visible": True}
 gDMS_Sample_Application_Rectangle = {"color": "#000000", "container": gDMS_Sample_Application_QQuickWindowQmlImpl, "occurrence": 2, "type": "Rectangle", "unnamed": 1, "visible": True}
+gDMS_Sample_Application_OCRMenuTesting_ContentItem = {"container": gDMS_Sample_Application_QQuickWindowQmlImpl, "objectName": "OCRMenuTesting", "type": "ContentItem", "visible": True}
+gDMS_Sample_Application_OCRMenuTesting = {"container": gDMS_Sample_Application_QQuickWindowQmlImpl, "type": "OCRMenuTesting", "unnamed": 1, "visible": True}
+gDMS_Sample_Application_Rectangle_2 = {"color": "#000000", "container": gDMS_Sample_Application_QQuickWindowQmlImpl, "occurrence": 6, "type": "Rectangle", "unnamed": 1, "visible": True}
+gDMS_Sample_Application_alertIcon_Image = {"container": gDMS_Sample_Application_QQuickWindowQmlImpl, "id": "alertIcon", "source": "/assets/OCRtestingimages/alert.png", "type": "Image", "unnamed": 1, "visible": True}

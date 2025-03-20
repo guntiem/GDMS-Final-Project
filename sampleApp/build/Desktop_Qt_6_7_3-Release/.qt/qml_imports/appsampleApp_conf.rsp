@@ -1,0 +1,14 @@
+-rootPath
+/home/kadum/GDMS-Final-Project/sampleApp
+-cmake-output
+-output-file
+/home/kadum/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Release/.qt/qml_imports/appsampleApp_conf.cmake
+-importPath
+/home/kadum/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Release/sampleApp
+-importPath
+/home/kadum/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Release
+-importPath
+/home/kadum/Qt/6.7.3/gcc_arm64/qml
+-qrcFiles
+/home/kadum/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Release/.qt/rcc/qmake_sampleApp.qrc
+/home/kadum/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Release/.qt/rcc/appsampleApp_raw_qml_0.qrc
