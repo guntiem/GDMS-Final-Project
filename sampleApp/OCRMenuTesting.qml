@@ -7,12 +7,32 @@ Page {
     visible: true
     title: "OCR Testing Page"
 
+    // Background image
     Image {
         source: "/assets/bg.png"
         anchors.fill: parent
         fillMode: Image.PreserveAspectCrop
     }
 
+    // The TEXT Section.
+    Item {
+        id: textTesting
+        anchors.fill: parent
+        anchors.margins: 50
+        anchors.leftMargin: 300
+        width: 400  // Set the width of the container item
+
+        Text {
+            id: firstText
+            text: qsTr("This is filler text to use to test the OCR engine's text verification: \n\nUPPERCASE lowercase MiXeD cAsE \n\n1234567890 ０１２３４５６７８９(Full-width numbers) \n\n!@#$%^&*()_+-=[]{}|;:'\",.<>?/ (Special characters) \n\nIl1| O0Q (Similar-looking characters) \n\nﬁﬂﬃﬄ (Ligatures)")
+            font.pointSize: 14
+            color: "white"
+            wrapMode: Text.Wrap  // Enable word wrapping to prevent overflow
+            width: parent.width
+        }
+    }
+
+    // MENU dislaying the icons
     Item {
         //LayoutMirroring.enabled: true
         anchors.right: parent.right
@@ -74,12 +94,15 @@ Page {
         }
     }
 
+    // CHECKBOX LIST to toggle icons displayed
     Item {
         id: iconSelect
         anchors.fill: parent
         anchors.margins: 50
+        width: 200
 
         Column {
+            width: 200
 
             Text {
                 text: "Icons to display:"
@@ -187,6 +210,8 @@ Page {
         }
     }
 
+
+    // BACK button
     Button {
         anchors.left: parent.left
         anchors.bottom: parent.bottom

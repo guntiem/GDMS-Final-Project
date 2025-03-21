@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_appsampleApp_FILE /home/kadum/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Release/appsampleApp)
+set(__QT_DEPLOY_TARGET_appsampleApp_TYPE EXECUTABLE)
