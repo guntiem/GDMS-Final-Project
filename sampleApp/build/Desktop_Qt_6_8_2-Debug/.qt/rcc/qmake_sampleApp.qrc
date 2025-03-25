@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/qt/qml/sampleApp">
+    <file alias="qmldir">/home/egunti/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_8_2-Debug/sampleApp/qmldir</file>
+  </qresource>
+</RCC>
+

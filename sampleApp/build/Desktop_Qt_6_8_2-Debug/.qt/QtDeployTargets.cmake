@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_appsampleApp_FILE /home/egunti/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_8_2-Debug/appsampleApp)
+set(__QT_DEPLOY_TARGET_appsampleApp_TYPE EXECUTABLE)
