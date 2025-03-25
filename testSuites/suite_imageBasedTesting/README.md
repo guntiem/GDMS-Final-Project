@@ -33,7 +33,7 @@ Image and text recognition in Squish uses the open-source OCR engine **Tesseract
 1. Follow tesseract installation process. Make sure to enable **Register the Tesseract installation with Squish**.
 
 <p align="center">
-    <img src="readmeMedia/tesseractInstall.png" width="550" />
+    <img src="../readmeMedia/tesseractInstall.png" width="550" />
 </p>
 
 2. Configure Tesseract OCR engine by clicking **Edit > Preferences** to open the Preferences window. Then in the side bar, **Squish > OCR > Tesseract** to ensure installation path with Squish. 
@@ -41,7 +41,7 @@ Image and text recognition in Squish uses the open-source OCR engine **Tesseract
 
 ### Running Tesseract
 
-![alt text](readmeMedia/iconTestRun.gif)
+![alt text](../readmeMedia/iconTestRun.gif)
 
 1. Record a test case the way you normally would using the Squish GUI
 2. Find **OCR Text** under the **Verify** tab 
@@ -78,7 +78,7 @@ See [this page](https://doc.qt.io/squish/squish-api.html) to find a more compreh
 ### Adding Images
 These images will be the source of reference while creating your test cases. After adding all of your images to a relative folder in the test suite, you will be able to select these images as pre-configure images when creating test cases using Squish's recording GUI. Additionally, when utilizing the test.ImagePresent function, the image file names will pre-populate for ease of use. 
 
-![alt text](readmeMedia/addingImageTest.gif)
+![alt text](../readmeMedia/addingImageTest.gif)
 1. Option 1: Add images to locate during test case recording:
 2. Option 2: If you have .pngs or comparable files already stored in your filesystem, you can speed up the image verification process by adding those images to the shared testSuite folder in your project. 
     * For example, in this project, you would add the icons to verify in: _GDMS-Final-Project/testSuites/suite_imageBasedTesting/shared/searchImages/<image-name.png>_ and use _image-name_ in the test.imagePresent() API. 
@@ -97,6 +97,18 @@ The templates provided in the respective testSuite include examples of
 ### Verbosity -->
 
 ## Notes
+
+### Tesseract OCR Engine Difficulties
+
+While going through the process of research and tinkering with the OCR engine, there's been some known faults. Further exploration and engine tuning to resolve these issues may be required. These issues include:
+
+#### Recognizing Text
+1. Has difficulty recognizing ligatures.
+2. Is not able to recognize the "^" character. It will be recognized as the "%" character.
+3. Full width numbers are able to be recognized, but too many in a single row results in required seperation testing.  
+4. 0 Will be recognized as uppercase O, unless surrounded by other digits. LSTM mode does not help in the base engine.
+5. Single Block Segmentation can be used to combine paragraph text, but more often than not text is still best recognized row-by-row.
+
 
 ### Resources:
 
