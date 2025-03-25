@@ -1,0 +1,11 @@
+--resource
+/home/kadum/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Release/.qt/rcc/qmake_sampleApp.qrc
+--resource
+/home/kadum/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Release/.qt/rcc/appsampleApp_raw_qml_0.qrc
+/qt/qml/sampleApp/Main.qml
+/qt/qml/sampleApp/OCRMenuTesting.qml
+/qt/qml/sampleApp/LockScreen.qml
+/qt/qml/sampleApp/ContactsScreen.qml
+/qt/qml/sampleApp/HistoryScreen.qml
+/qt/qml/sampleApp/PhoneScreen.qml
+/qt/qml/sampleApp/SettingsScreen.qml
