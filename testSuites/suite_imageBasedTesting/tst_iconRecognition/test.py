@@ -11,27 +11,27 @@ import names
     
 def main():
     
-    # === APPLICATION GUI INTERACTION SETUP =========================================================================================
+    #=== APPLICATION GUI INTERACTION SETUP =========================================================================================
     startApplication("appsampleApp")
     
-    # Entering relevant App page...
+    # entering relevant app page...
     mouseClick(waitForObject(names.gDMS_Sample_Application_RoundButton), 46, 50, Qt.LeftButton)
     
-    # Displaying following icons onto the menubar section using GUI checkboxes...
+    # displaying following icons onto the menubar section using GUI checkboxes...
     mouseClick(waitForObject(names.gDMS_Sample_Application_Alert_CheckBox), 12, 11, Qt.LeftButton)
     mouseClick(waitForObject(names.gDMS_Sample_Application_Headphone_CheckBox), 12, 17, Qt.LeftButton)
     mouseClick(waitForObject(names.gDMS_Sample_Application_Locked_CheckBox), 12, 6, Qt.LeftButton)
     mouseClick(waitForObject(names.gDMS_Sample_Application_Mute_CheckBox), 13, 16, Qt.LeftButton)
     
-    # Leave these icons hidden...
+    # leave these icons hidden...
     # mouseClick(waitForObject(names.gDMS_Sample_Application_Pause_CheckBox), 17, 12, Qt.LeftButton)
     # mouseClick(waitForObject(names.gDMS_Sample_Application_Video_CheckBox), 13, 17, Qt.LeftButton)
     # mouseClick(waitForObject(names.gDMS_Sample_Application_Voicemail_CheckBox), 13, 14, Qt.LeftButton)
-    # ============================================================================================================================
+    #============================================================================================================================
     
     
-    # === BASIC IMAGE PRESENT/NOT PRESENT TESTING (ALL PASS) ======================================================================
-    # This approach utilizes the entire window screen to check for icon presence
+    #=== BASIC IMAGE PRESENT/NOT PRESENT TESTING (all pass) ======================================================================
+    # this approach utilizes the entire window screen to check for icon presence
     test.imagePresent("headphoneIcon")
     test.imagePresent("mutedIcon")
     test.imagePresent("alertIcon")
@@ -40,42 +40,37 @@ def main():
     test.imageNotPresent("pauseIcon")
     test.imageNotPresent("videoIcon")
     test.imageNotPresent("voicemailIcon")
-    # ===============================================================================================================================
+    #===============================================================================================================================
     
     
-    # === TUNING PARAMETERS (ALL PASS)===============================================================================================
+    #=== TUNING PARAMETERS (all pass) ===============================================================================================
     # tolerant: 
     # multiscale: 
     # threshold: 
     test.imagePresent('mutedIcon', {'tolerant': True, 'multiscale': True, 'threshold': 99.5},)
-    # ===============================================================================================================================
+    #===============================================================================================================================
     
     
-    # === TESTING SPECIFIC WINDOW REGION (ALL PASS) =================================================================================
-    # Specify by Ratio: This approach utilizes the entire window screen to check for icon presence
+    #=== TEST VIA WINDOW REGION (all pass) =================================================================================
+    # specify by ratio: this approach utilizes the entire window screen to check for icon presence
     BOUNDS = object.globalBounds(waitForObject(names.gDMS_Sample_Application_QQuickWindowQmlImpl))
     BOUNDS.width = BOUNDS.width / 2
     test.imageNotPresent('mutedIcon', {}, BOUNDS) # Will check the 2nd and 3rd quadrants
     
-    # Specify by Pixels: using UiTypes.ScreenRectangle(x, y, width, height)
-    # NOTE: The display screen size for this test case is 850x480
+    # specify by pixels: using UiTypes.ScreenRectangle(x, y, width, height)
+    # ***the display screen size for this test case is 850x480
     test.imagePresent('mutedIcon', {'tolerant': False}, UiTypes.ScreenRectangle(630, 0, 220, 40)) # Only the area of the screen if max(iconsPresent)
-    # ===============================================================================================================================
+    #===============================================================================================================================
     
     
-    # === TESTING SPECIFIC OBJECT BOUNDS (ALL PASS) =================================================================================
-    # The following will grab region spanned by QtApp objects
+    #=== TEST VIA OBJECT BOUNDS (all pass) =================================================================================
+    # the following will grab region spanned by QtApp objects
     test.imagePresent("mutedIcon", {}, waitForObjectExists(names.gDMS_Sample_Application_OCRMenuTesting_ContentItem))
     
-    # NOTE: You can also list multiple objects, pass as a list. 
+    # ***you can also list multiple objects, pass as a list. 
     test.imagePresent("mutedIcon", {}, [waitForObjectExists(names.gDMS_Sample_Application_OCRMenuTesting_ContentItem), 
                                         waitForObjectExists(names.gDMS_Sample_Application_OCRMenuTesting)])
-    # ===============================================================================================================================
+    #===============================================================================================================================
     
-    
-    
-    
-    
+    closeWindow(names.gDMS_Sample_Application_QQuickWindowQmlImpl)
 
-    
-    

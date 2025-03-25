@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 
+
 Page {
     width: 850
     height: 480
@@ -198,6 +199,7 @@ Page {
                 id: voicemailIconEnable
                 text: "Voicemail"
                 checked: false
+
 
                 onCheckedChanged: {
                     if (checked) {
