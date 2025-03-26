@@ -30,12 +30,12 @@ def findText(text):
 
 def findImage(image):
     if test.ocrTextPresent(text, {"timeout": 1000}):
-        test.passes(f"PASS: {text} text visible!")   
+        test.passes(f"PASS: {image} icon visible!")   
     else:
-        screenshot_name = f"ocr_for_{text}_fail.png"
+        screenshot_name = f"ocr_for_{image}_fail.png"
         save_screenshot(screenshot_name)
         
-        test.log(f"Screenshot taken. Failed OCR verification for: {text}")
+        test.log(f"Screenshot taken. Failed to find {image}")
     return
         
     

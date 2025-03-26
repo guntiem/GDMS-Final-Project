@@ -1,25 +1,77 @@
 # -*- coding: utf-8 -*-
 
 import names
+import os.path
+import sys
+
+
+def setUp():
+    testSettings.logScreenshotOnError = True
+    testSettings.logScreenshotOnFail = True
+    testSettings.logScreenshotOnWarning = True
+    testSettings.logScreenshotOnPass = True
+    testSettings.reportFormat = "html"  # or "xml" for XML reports
+    testSettings.reportDir = "/home/kadum"
+
+
+# TODO: not yet used
+def registerAUT(aut, path, squishserver_host=None, squishserver_port=None):
+    s = '"' + os.environ["SQUISH_PREFIX"] + '/bin/squishrunner"'
+    if squishserver_host is not None:
+        s += ' --host ' + squishserver_host
+    if squishserver_port is not None:
+        s += ' port=' + str(squishserver_port)
+    s += ' --config addAUT "' + aut + '" "' + path + '"'
+    if sys.platform == "win32" and s.endswith('"'):
+        s = '"' + s
+    test.log("Executing: " + s)
+    os.system(s)
+    
+
+def save_screenshot(filename):
+    widget = waitForObject({"HomePage"})
+    img = object.grabScreenshot(widget)
+    
+    img.save(filename)
+    testData.get(filename)
+    
+    screenshot_dir = '/home/kadum/GDMS-Capstone/suite_ocr_testing/tst_screenshotting'
+    if not os.path.exists(screenshot_dir):
+        os.makedirs(screenshot_dir)
+    
+    full_path = os.path.join(screenshot_dir, filename)
+    img.save(full_path)
+    testData.get(full_path)
+
+
+def findText(text):
+    if test.ocrTextPresent(text, {"timeout": 10000}):
+        test.passes("PASS: " + text + " text visible!")   
+    elif test.ocrTextNotPresent(text, {"timeout": 2000}): # "timeout" parameter time in ms
+        test.fail(f"FAIL: Failed to find the text{text} on screen.")
+        
+        # saving screenshot on fail point
+        #screenshot_name = f"{text}_ocrfail"
+        #save_screenshot(screenshot_name)
+    else:
+        test.log(f"Failed to perform OCR verification on text:{text}")
+        
+    
 
 
 def main():
+    #=== SETUP ==================================================================================================================
     startApplication("appsampleApp")
-    mouseClick(waitForObject(names.gDMS_Sample_Application_RoundButton), 18, 45, Qt.LeftButton)
-    mouseClick(waitForObject(names.gDMS_Sample_Application_Back_Button), 42, 4, Qt.LeftButton)
-    mouseClick(waitForObject(names.gDMS_Sample_Application_Image), 92, 408, Qt.LeftButton)
-    mouseClick(waitForObject(names.gDMS_Sample_Application_RoundButton_2), 44, 56, Qt.LeftButton)
-    mouseClick(waitForObject(names.gDMS_Sample_Application_Unlock_Phone_Button), 32, 4, Qt.LeftButton)
-    mouseClick(waitForObject(names.gDMS_Sample_Application_passwordField_TextField), 93, 12, Qt.LeftButton)
-    type(waitForObject(names.gDMS_Sample_Application_passwordField_TextField), "1234")
-    type(waitForObject(names.gDMS_Sample_Application_passwordField_TextField), "<Return>")
-    mouseClick(waitForObject(names.gDMS_Sample_Application_Unlock_Phone_Button), 32, 16, Qt.LeftButton)
-    mouseClick(waitForObject(names.gDMS_Sample_Application_RoundButton_3), 50, 11, Qt.LeftButton)
-    mouseClick(waitForObject(names.gDMS_Sample_Application_Back_Button), 45, 10, Qt.LeftButton)
-    mouseClick(waitForObject(names.gDMS_Sample_Application_RoundButton_4), 39, 22, Qt.LeftButton)
-    mouseClick(waitForObject(names.gDMS_Sample_Application_RoundButton_5), 77, 39, Qt.LeftButton)
-    mouseWheel(waitForObject(names.phoneDelegate_Rectangle), 240, 25, 0, 60, Qt.NoModifier)
-    mouseWheel(waitForObject(names.phoneDelegate_Rectangle_2), 240, 20, 0, -75, Qt.NoModifier)
-    mouseClick(waitForObject(names.gDMS_Sample_Application_image_IconImage), 5, 9, Qt.LeftButton)
-    snooze(1.0)
-    closeWindow(names.gDMS_Sample_Application_QQuickWindowQmlImpl)
+    
+    # entering relevant app page...
+    mouseClick(waitForObject(names.gDMS_Sample_Application_RoundButton), 46, 50, Qt.LeftButton)
+    
+    # displaying following icons onto the menubar section using GUI checkboxes...
+    mouseClick(waitForObject(names.gDMS_Sample_Application_Alert_CheckBox), 12, 11, Qt.LeftButton)
+    # mouseClick(waitForObject(names.gDMS_Sample_Application_Headphone_CheckBox), 12, 17, Qt.LeftButton)
+    # mouseClick(waitForObject(names.gDMS_Sample_Application_Locked_CheckBox), 12, 6, Qt.LeftButton)
+    mouseClick(waitForObject(names.gDMS_Sample_Application_Mute_CheckBox), 13, 16, Qt.LeftButton)
+    # mouseClick(waitForObject(names.gDMS_Sample_Application_Pause_CheckBox), 17, 12, Qt.LeftButton)
+    mouseClick(waitForObject(names.gDMS_Sample_Application_Video_CheckBox), 13, 17, Qt.LeftButton)
+    # mouseClick(waitForObject(names.gDMS_Sample_Application_Voicemail_CheckBox), 13, 14, Qt.LeftButton)
+    #============================================================================================================================
