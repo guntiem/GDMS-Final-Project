@@ -9,8 +9,10 @@
 '''
 import names
     
-def main():
+SCREEN = names.gDMS_Sample_Application_QQuickWindowQmlImpl
     
+def main():
+    global SCREEN
     #=== APPLICATION GUI INTERACTION SETUP =========================================================================================
     startApplication("appsampleApp")
     
@@ -45,16 +47,16 @@ def main():
     
     
     #=== TUNING PARAMETERS (all pass) ===============================================================================================
-    # tolerant: 
-    # multiscale: 
-    # threshold: 
+    # tolerant: bool. Some differences between template image and actual display screenshot are allowed
+    # multiscale: bool. Enables image search with scaling allowed
+    # threshold: percentage value. Higher values are considered more exact match. (correlation percentage)
     test.imagePresent('mutedIcon', {'tolerant': True, 'multiscale': True, 'threshold': 99.5},)
     #===============================================================================================================================
     
     
     #=== TEST VIA WINDOW REGION (all pass) =================================================================================
     # specify by ratio: this approach utilizes the entire window screen to check for icon presence
-    BOUNDS = object.globalBounds(waitForObject(names.gDMS_Sample_Application_QQuickWindowQmlImpl))
+    BOUNDS = object.globalBounds(waitForObject(SCREEN))
     BOUNDS.width = BOUNDS.width / 2
     test.imageNotPresent('mutedIcon', {}, BOUNDS) # Will check the 2nd and 3rd quadrants
     

@@ -25,7 +25,7 @@ Page {
 
         Text {
             id: firstText
-            text: qsTr("This is filler text to use to test the OCR engine's text verification: \n\nUPPERCASE lowercase MiXeD cAsE \n\n1234567890 ０１２３４５６７８９(Full-width numbers) \n\n!@#$%^&*()_+-=[]{}|;:'\",.<>?/ (Special characters) \n\nIl1| O0Q (Similar-looking characters) \n\nﬁﬂﬃﬄ (Ligatures)")
+            text: qsTr("This is filler text to use to test the OCR engine's text verification: \n\nUPPERCASE lowercase MiXeD cAsE \n\n01234 ５６７８９(Full-width numbers) \n\n!@#$%^&*()_+-=[]{}|;:'\",.<>?/ (Special characters) \n\nIl1| O0Q (Similar-looking characters) \n\nﬁﬂﬃﬄ (Ligatures)")
             font.pointSize: 14
             color: "white"
             wrapMode: Text.Wrap  // Enable word wrapping to prevent overflow

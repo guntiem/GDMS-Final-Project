@@ -4,7 +4,7 @@
         - returns bool: True when first argument passed (text to test value) is recognized in search region
         > arguments: (text, [parameterMap], [searchRegion])
             - parameterMap: {'tesseract': ('parameter' : 'value', ...}}
-                - parameters: interval(ms), timeout(ms) occurence, profiles, options, scalefactor, message
+                - parameters: interval(ms), timeout(ms) occurrence, profiles, options, scalefactor, message
                 - tesseract parameters: mode, psm, preprocessing
             - searchRegion: 
                 - empty value (default) searches entire physical display
@@ -18,16 +18,16 @@
             - used in this example file:
                 - 3: Fully Automatic Page Segmentation, But No OSD (best performance)
                 - 11: Sparse Text: Find as Much Text as Possible in No Particular Order
-              
-    
 '''
 
 import names
     
 SCREEN = names.gDMS_Sample_Application_QQuickWindowQmlImpl
+TEXT_SECTION = names.gDMS_Sample_Application_This_is_filler_text_to_use_to_test_the_OCR_engine_s_text_verification_UPPERCASE_lowercase_MiXeD_cAsE_01234_Full_width_numbers_Special_characters_Il1_O0Q_Similar_looking_characters_Ligatures_Text
+    
 
 def main():    
-    global SCREEN
+    global SCREEN, TEXT_SECTION
     #=== APPLICATION GUI INTERACTION SETUP =========================================================================================
     startApplication("appsampleApp")
     
@@ -36,37 +36,57 @@ def main():
     #=============================================================================================================================
     
     
-    #=== BASIC TEXT PRESENT/NOT PRESENT TESTING  ======================================================================
+    #=== BASIC TEXT PRESENT/NOT PRESENT TESTING ======================================================================
     # this approach utilizes the entire app window screen to check for icon presence
     test.ocrTextPresent("This is Filler text to use to test the OCR engine's text", 
                         { "tesseract": { "psm": 3 } }, waitForObjectExists(SCREEN));
+                        
     test.ocrTextPresent("FiFLFFIFFl", { "tesseract": { "mode": 1, "psm": 11 } });
     
     #===============================================================================================================================
+
     
+    #=== LOWER/UPPER CASES =================================================================================
+    test.ocrTextPresent("CASE", { "tesseract": { "psm": 3 }, "occurrence": 2 }, waitForObjectExists(TEXT_SECTION));
     
-    #=== TESTING SPECIFIC WINDOW REGION (ALL PASS) =================================================================================
-    # Specify by Ratio: This approach utilizes the entire window screen to check for icon presence
-    BOUNDS = object.globalBounds(waitForObject(SCREEN))
-    BOUNDS.width = BOUNDS.width / 2
-    test.imageNotPresent('mutedIcon', {}, BOUNDS) # Will check the 2nd and 3rd quadrants
+    test.ocrTextPresent("UPPERCASE", {"message":"Expected UPPERCASE"})
+    test.ocrTextPresent("lowercase", {"message":"Expected lowercase"})
+    test.ocrTextPresent("MiXeD cAsE", {"message":"Expected MiXeD cAsE"})
     
-    # Specify by Pixels: using UiTypes.ScreenRectangle(x, y, width, height)
-    # NOTE: The display screen size for this test case is 850x480
-    test.imagePresent('mutedIcon', {'tolerant': False}, UiTypes.ScreenRectangle(630, 0, 220, 40)) # Only the area of the screen if max(iconsPresent)
+    test.ocrTextPresent("mixed case", {"message":"Checking to see if letter case blocks test failure"})
     #===============================================================================================================================
     
     
-    #=== TESTING SPECIFIC OBJECT BOUNDS (ALL PASS) =================================================================================
-    # The following will grab region spanned by QtApp objects
-    test.imagePresent("mutedIcon", {}, waitForObjectExists(names.gDMS_Sample_Application_OCRMenuTesting_ContentItem))
+    #=== NUMBERS AND SPACING =================================================================================
+    #checking for concurrent digits
+    test.ocrTextPresent("01234", {"message": "Expected regular digits 0-9."})
+    test.ocrTextPresent("56789", {"message": "Expected Full-Width digits 0-9."})
     
-    # NOTE: You can also list multiple objects, pass as a list. 
-    test.imagePresent("mutedIcon", {}, [waitForObjectExists(names.gDMS_Sample_Application_OCRMenuTesting_ContentItem), 
-                                        waitForObjectExists(names.gDMS_Sample_Application_OCRMenuTesting)])
+    #testing for individual digits
+    test.ocrTextPresent("1")
+    test.ocrTextPresent("2")
+    test.ocrTextPresent("3")
+    
+    test.ocrTextPresent("0123456789", {"message": "Testing full 0123456789 (regular-full mix)."})
     #===============================================================================================================================
     
     
+    #=== SPECIAL CHARACTERS =================================================================================
+    # full character recognition testing...
+    test.ocrTextPresent("!@#$%^&*()_+-=[]{}|;:'\",.<>?/", {"message": "Expected all characters to match"})
+    #===============================================================================================================================
+    
+    
+    #=== SIMILAR CHARACTERS =================================================================================
+    test.ocrTextPresent("Il1| O0Q", {"message":"Expected value: Il1| O0Q"})
+    #===============================================================================================================================
+    
+    
+    #=== LIGATURES =================================================================================
+    
+    #===============================================================================================================================
+    
+    closeWindow(names.gDMS_Sample_Application_QQuickWindowQmlImpl)
     
     
     
