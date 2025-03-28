@@ -16,7 +16,6 @@ def main():
     #=== APPLICATION GUI INTERACTION SETUP =========================================================================================
     startApplication("appsampleApp")
     
-    # 
     # entering relevant app page...
     mouseClick(waitForObject(names.gDMS_Sample_Application_RoundButton), 46, 50, Qt.LeftButton)
     
@@ -35,6 +34,7 @@ def main():
     
     #=== BASIC IMAGE PRESENT/NOT PRESENT TESTING (all pass) ======================================================================
     # this approach utilizes the entire window screen to check for icon presence
+    
     test.imagePresent("headphoneIcon")
     test.imagePresent("mutedIcon")
     test.imagePresent("alertIcon")
@@ -43,14 +43,6 @@ def main():
     test.imageNotPresent("pauseIcon")
     test.imageNotPresent("videoIcon")
     test.imageNotPresent("voicemailIcon")
-    #===============================================================================================================================
-    
-    
-    #=== TUNING PARAMETERS (all pass) ===============================================================================================
-    # tolerant: bool. Some differences between template image and actual display screenshot are allowed
-    # multiscale: bool. Enables image search with scaling allowed
-    # threshold: percentage value. Higher values are considered more exact match. (correlation percentage)
-    test.imagePresent('mutedIcon', {'tolerant': True, 'multiscale': True, 'threshold': 99.5},)
     #===============================================================================================================================
     
     
@@ -73,6 +65,15 @@ def main():
     # ***you can also list multiple objects, pass as a list. 
     test.imagePresent("mutedIcon", {}, [waitForObjectExists(names.gDMS_Sample_Application_OCRMenuTesting_ContentItem), 
                                         waitForObjectExists(names.gDMS_Sample_Application_OCRMenuTesting)])
+    #===============================================================================================================================
+    
+    
+    #=== TUNING PARAMETERS (all pass) ===============================================================================================
+    # tolerant: bool. Some differences between template image and actual display screenshot are allowed
+    # multiscale: bool. Enables image search with scaling allowed
+    # threshold: percentage value. Higher values are considered more exact match. (correlation percentage)
+    
+    test.imagePresent('mutedIcon', {'tolerant': True, 'multiscale': True, 'threshold': 99.5},)
     #===============================================================================================================================
     
     closeWindow(names.gDMS_Sample_Application_QQuickWindowQmlImpl)

@@ -1,10 +1,16 @@
 # -*- coding: utf-8 -*-
 ''' TEMPLATE NOTES:
+    > findOcrText(text, [parameterMap], [searchRegion]): looks for [text] instance on screen
+        - throws error if [text] is not found
+        - provides option to modify testing parameters upon error
+        
     > test.ocrTextPresent(): test for visual text recognition.  Ref: https://doc.qt.io/squish/test-ocrtextpresent-function.html
         - returns bool: True when first argument passed (text to test value) is recognized in search region
         > arguments: (text, [parameterMap], [searchRegion])
             - parameterMap: {'tesseract': ('parameter' : 'value', ...}}
                 - parameters: interval(ms), timeout(ms) occurrence, profiles, options, scalefactor, message
+                    - 'scalefactor' refers to how large the test image [searchRegion] is scaled before being passed into the OCR engine. Default value is 3.5.
+                      Increease/decrease this value depending on size of font of text to test. 
                 - tesseract parameters: mode, psm, preprocessing
             - searchRegion: 
                 - empty value (default) searches entire physical display
@@ -12,8 +18,7 @@
                 - Ref: https://doc.qt.io/squish/improving-object-identification.html
             
     > OCR tuning:
-        - image processing
-        > noisy text handling: use "mdoe" parameter. LSTM ("mode": "1") is used in this example.
+        > noisy text handling: use "mode" parameter. LSTM ("mode": "1") is used in this example.
         > page segmentation modes ("psm"): https://pyimagesearch.com/2021/11/15/tesseract-page-segmentation-modes-psms-explained-how-to-improve-your-ocr-accuracy/
             - used in this example file:
                 - 3: Fully Automatic Page Segmentation, But No OSD (best performance)
@@ -24,7 +29,7 @@ import names
     
 SCREEN = names.gDMS_Sample_Application_QQuickWindowQmlImpl
 TEXT_SECTION = names.gDMS_Sample_Application_This_is_filler_text_to_use_to_test_the_OCR_engine_s_text_verification_UPPERCASE_lowercase_MiXeD_cAsE_01234_Full_width_numbers_Special_characters_Il1_O0Q_Similar_looking_characters_Ligatures_Text
-    
+
 
 def main():    
     global SCREEN, TEXT_SECTION
@@ -36,8 +41,20 @@ def main():
     #=============================================================================================================================
     
     
+    #=== Approach that doesn't log pass/fail to Test Results ======================================================================
+    # this approach utilizes the entire app window screen to check for icon presence
+    
+    findOcrText("This is Filler text to use to test the OCR engine's text", 
+                        { "tesseract": { "psm": 3 } }, waitForObjectExists(SCREEN));
+                        
+    # findOcrText("FiFLFFIFFl", { "tesseract": { "mode": 1, "psm": 11 } }, waitForObjectExists(SCREEN));
+    
+    #===============================================================================================================================
+    
+    
     #=== BASIC TEXT PRESENT/NOT PRESENT TESTING ======================================================================
     # this approach utilizes the entire app window screen to check for icon presence
+    
     test.ocrTextPresent("This is Filler text to use to test the OCR engine's text", 
                         { "tesseract": { "psm": 3 } }, waitForObjectExists(SCREEN));
                         
@@ -83,7 +100,7 @@ def main():
     
     
     #=== LIGATURES =================================================================================
-    
+    test.ocrTextPresent("FiFLFFIFF", { "tesseract": { "psm": 3 } });
     #===============================================================================================================================
     
     closeWindow(names.gDMS_Sample_Application_QQuickWindowQmlImpl)
