@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ''' TEMPLATE NOTES:
     > findOcrText(text, [parameterMap], [searchRegion]): looks for [text] instance on screen
-        - throws error if [text] is not found
+        - throws error if [text] is not found 
         - provides option to modify testing parameters upon error
         
     > test.ocrTextPresent(): test for visual text recognition.  Ref: https://doc.qt.io/squish/test-ocrtextpresent-function.html

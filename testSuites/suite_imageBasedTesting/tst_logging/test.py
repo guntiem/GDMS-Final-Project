@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 ''' TEMPLATE NOTES:
-    > Screenshotting upon [Test fail, test pass, error]
+    > Screenshotting upon [Test fail, test pass, error, etc]
     > Separate logging without pass/fail criteria
 '''
 import names
@@ -8,6 +8,7 @@ import datetime
 import os
 
 SCREEN = names.gDMS_Sample_Application_QQuickWindowQmlImpl
+
 
 def save_screenshot(test):
     global SCREEN
@@ -29,8 +30,8 @@ def save_screenshot(test):
         
 
 def main():
-    list_of_expected_words = ['UPPERCASE', 'lowercase', 'uppercase']
-    # list_of_unexpected_words = ['ASU', 'Capstone']
+    list_of_expected_words = ['UPPERCASE', 'lowercase', 'OCR']
+    list_of_unexpected_words = ['ASU']
     
     #=== SETUP =========================================================================================================================
     startApplication("appsampleApp")
@@ -75,30 +76,28 @@ def main():
     # Along with Squish's built in screenshot upon failure/pass/etc functionalities, we can also grab screenshots of the application
     # at other points of execution if needed. Below is an example of how this can be done:
     
-    test.log('ENTER Simple Screenshot Examples...')
+    test.log('ENTER Screenshot Methods...')
     
-    # PASS example: Creating custom screenshot function
-    for word in list_of_expected_words:
-        if not test.ocrTextPresent(word, { "tesseract": { "psm": 3 } }):
-            test.log(f'Failed to locate {word}. Taking screenshot...', 'Image saved in: ../../../testSuites/suite_imageBasedTesting/screenshots')
-            save_screenshot(word)
-            
-    
-    # FAIL example: Using findOcrText()
-    # testSettings.logScreenshotOnError = True
-    # findOcrText('ASU', { "tesseract": { "psm": 3 } });
-    # testSettings.logScreenshotOnError = False
-    
-    # FAIL example: Utilizing testSettings (Saved to .squish/Test Results)
-    testSettings.logScreenshotOnFail = True
-    test.ocrTextPresent("ASU", { "tesseract": { "psm": 3 }, 'timeout': 5000})
-    testSettings.logScreenshotOnFail = False
-    
-    # FAIL example: Custom screenshot saving
-    if not test.ocrTextPresent("ASU", { "tesseract": { "psm": 3 }, 'timeout': 5000}):
-        test.log(f'Failed to locate {word}. Taking screenshot...', 'Image saved in: ../../../testSuites/suite_imageBasedTesting/screenshots')
-        save_screenshot(word)
+    for word in list_of_unexpected_words:
         
+        # PASS example: Creating custom screenshot function
+        if test.ocrTextNotPresent(word, { "tesseract": { "psm": 3 }, 'message': f"custom_testID-01234: Locating \"{word}\""}):
+            save_screenshot(word)
+            test.log("custom_testID_01234: Screenshot taken", 'Custom Screenshot')
+    
+        # FAIL example: Using findOcrText()
+        testSettings.logScreenshotOnError = True
+        try:
+            findOcrText(word, {"tesseract": { "psm": 3 }, 'message': f"logOnError_testID-01235: Locating \"{word}\""}) 
+        except:
+            test.log(f"logOnError_testID-01235: Screenshot taken.", 'logScreenshotOnError example')
+        testSettings.logScreenshotOnError = False
+        
+        # FAIL/PASS example: Utilizing testSettings (Saved to .squish/Test Results)
+        testSettings.logScreenshotOnFail = True
+        test.ocrTextPresent(word, { "tesseract": { "psm": 3 }, 'timeout': 5000, 'message': f"logOnFail_testID-01236: Locating \"{word}\""})
+        testSettings.logScreenshotOnFail = False
+            
     test.log('EXIT Simple Screenshot Examples.')
     #===================================================================================================================================
     
