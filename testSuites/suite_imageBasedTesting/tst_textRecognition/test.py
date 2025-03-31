@@ -4,7 +4,12 @@
         - throws error if [text] is not found 
         - provides option to modify testing parameters upon error
         
-    > test.ocrTextPresent(): test for visual text recognition.  Ref: https://doc.qt.io/squish/test-ocrtextpresent-function.html
+    > waitForOcrText(text, [parameterMap], [searchRegion]) 
+        - Ref: https://doc.qt.io/squish/waitforocrtext-function.html
+        - Can be used to correspond Text on screen with followed GUI interaction
+        
+    > test.ocrTextPresent(): test for visual text recognition.  
+        - Ref: https://doc.qt.io/squish/test-ocrtextpresent-function.html
         - returns bool: True when first argument passed (text to test value) is recognized in search region
         > arguments: (text, [parameterMap], [searchRegion])
             - parameterMap: {'tesseract': ('parameter' : 'value', ...}}

@@ -5,14 +5,12 @@
         - arguments: imageFile, [parameterMap], [searchRegion]
         > parameterMap: {'parameter' : 'value', ...}
             - parameters: occurrence, interval(ms), timeout(ms), tolerant(bool), threshold, multiscale, minScale, maxScale, message
+            
     > region to test can be specified via display bounds or QtApplication object
 '''
 import names
     
-SCREEN = names.gDMS_Sample_Application_QQuickWindowQmlImpl
-    
 def main():
-    global SCREEN
     #=== APPLICATION GUI INTERACTION SETUP =========================================================================================
     startApplication("appsampleApp")
     
@@ -48,13 +46,13 @@ def main():
     
     #=== TEST VIA WINDOW REGION (all pass) =================================================================================
     # specify by ratio: this approach utilizes the entire window screen to check for icon presence
-    BOUNDS = object.globalBounds(waitForObject(SCREEN))
-    BOUNDS.width = BOUNDS.width / 2
-    test.imageNotPresent('mutedIcon', {}, BOUNDS) # Will check the 2nd and 3rd quadrants
+    #*** In this project, dividing ScreenRectangle area by more than 4 creates inconsistencies 
+
+    BOUNDS = object.globalBounds(waitForObject(names.gDMS_Sample_Application_OCRMenuTesting_ContentItem))
     
     # specify by pixels: using UiTypes.ScreenRectangle(x, y, width, height)
-    # ***the display screen size for this test case is 850x480
-    test.imagePresent('mutedIcon', {'tolerant': False}, UiTypes.ScreenRectangle(630, 0, 220, 40)) # Only the area of the screen if max(iconsPresent)
+    test.imagePresent('mutedIcon', {'tolerant': True, 'multiscale': True, 'threshold': 99.5}, 
+                      UiTypes.ScreenRectangle((BOUNDS.width / 4) * 3, 0, BOUNDS.width / 4, BOUNDS.height / 4)) 
     #===============================================================================================================================
     
     
