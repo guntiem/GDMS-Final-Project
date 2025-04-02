@@ -1,6 +1,0 @@
-<RCC>
-  <qresource prefix="/">
-    <file alias="/qt/qml/sampleApp">/home/kadum/GDMS-Final-Project/sampleApp/build/Desktop_Qt_6_7_3-Release/sampleApp</file>
-
-  </qresource>
-</RCC>

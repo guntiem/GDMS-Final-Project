@@ -1,0 +1,7 @@
+<testconfig version="1.0">
+    <information>
+        <summary>Long Press Functionality</summary>
+        <description>This button should only open the pop up if the user long presses the button, other than that, any single clicks or double clicks should not open the pop up and this test case verifies that. </description>
+    </information>
+    <testsettings/>
+</testconfig>

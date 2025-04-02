@@ -1,0 +1,7 @@
+<testconfig version="1.0">
+    <information>
+        <summary>Double Click Functionality</summary>
+        <description>The test case should pass if the button is double clicked on, and not single or long press.</description>
+    </information>
+    <testsettings/>
+</testconfig>
