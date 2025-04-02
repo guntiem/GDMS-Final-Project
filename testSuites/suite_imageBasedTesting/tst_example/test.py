@@ -75,7 +75,7 @@ def main():
     for icon in ICONS:
         # initial check
         if test.imagePresent(icon, {'timeout': 5000, 'tolerant': True, 'multiscale': True, 'threshold': 99.5}, waitForObject(SCREEN)):
-            test.log(f"Test {icon} visibility: PASS on attempt 1")
+            test.log(f"PASS {icon} visibility: Attempt 1")
             
         # check action that leads to expected initial check
         else:
@@ -98,18 +98,16 @@ def main():
                     case _:
                         snooze(1)
                 
-                if test.imagePresent(icon, {'timeout': 5000, 'tolerant': True, 'multiscale': True, 'threshold': 90.0}):
-                    test.log(f"Test {icon} visibility: PASS on attempt {i}")   
+                if test.imagePresent(icon, {'timeout': 5000, 'tolerant': True, 'multiscale': True, 'threshold': 90.0, 'message': f"PASS {icon} visibility: Attempt {i}"}):
+                    test.log(f"PASS {icon} visibility: Attempt {i}")   
                     break
         
-                # log a screenshot if overall test failure
-                # if not findImage(icon, {'tolerant': True, 'multiscale': True, 'threshold': 99.5,
-                                    # 'message': f'Test {icon}: Image was never identified. Logging screenshot'}, waitForObject(SCREEN)):
-
-            now = datetime.datetime.now()
-            date = now.strftime("%Y-%m-%d_%H:%M:%S")
-            save_screenshot(icon, date)
-            test.fail(f"Test {icon} visibility: FAIL after 5 attempts", f'Screenshot saved at {date}')
+                # log a screenshot if overall test failure 
+                if i == 5:
+                    now = datetime.datetime.now()
+                    date = now.strftime("%Y-%m-%d_%H:%M:%S")
+                    save_screenshot(icon, date)
+                    test.fail(f"FAIL {icon} visibility after {i} attempts", f'Screenshot saved at {date}')
                 
     test.log("EXIT testing menu icons...")
     #============================================================================================================================

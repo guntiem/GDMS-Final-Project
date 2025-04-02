@@ -44,7 +44,7 @@ def main():
     #===============================================================================================================================
     
     
-    #=== TEST VIA WINDOW REGION (all pass) =================================================================================
+    #=== TEST VIA SPECIFIC REGION (all pass) =================================================================================
     # specify by ratio: this approach utilizes the entire window screen to check for icon presence
     #*** In this project, dividing ScreenRectangle area by more than 4 creates inconsistencies 
 

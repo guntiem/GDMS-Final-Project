@@ -48,9 +48,10 @@ def main():
     
     #=== Approach that doesn't log pass/fail to Test Results ======================================================================
     # this approach utilizes the entire app window screen to check for icon presence
-    
+
     findOcrText("This is Filler text to use to test the OCR engine's text", 
-                        { "tesseract": { "psm": 3 } }, waitForObjectExists(SCREEN));
+                        { "tesseract": { "psm": 3 } }, waitForObjectExists(SCREEN
+                                                                           ));
                         
     # findOcrText("FiFLFFIFFl", { "tesseract": { "mode": 1, "psm": 11 } }, waitForObjectExists(SCREEN));
     
