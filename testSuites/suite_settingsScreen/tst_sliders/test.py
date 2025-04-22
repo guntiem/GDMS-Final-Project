@@ -4,7 +4,8 @@ import names
 
 
 def main():
-    startApplication("appsampleApp")
+    # startApplication("appsampleApp")
+    attachToApplication("appSampleApp")
     
     #Open the settings screen 
     mouseClick(waitForObject(names.gDMS_Sample_Application_RoundButton), 58, 42, Qt.LeftButton)
@@ -23,3 +24,7 @@ def main():
     mouseDrag(waitForObject(names.o_Rectangle_3), 1, 2, 2, -88, Qt.NoModifier, Qt.LeftButton)
     test.passes("Notification Slider is working")
     test.passes("All sliders are working, test case passed")
+    
+    # Remove later(?) - Tony
+    mouseWheel(waitForObject(names.o_Flickable), 507, 280, 0, -180, Qt.NoModifier)
+    mouseClick(waitForObject(names.back_Button), 66, 14, Qt.LeftButton)
