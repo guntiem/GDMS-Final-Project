@@ -1,0 +1,31 @@
+2025-04-22T18:07:42	START     	Start 'suite_lockscreenTesting'	Test 'suite_lockscreenTesting' started
+2025-04-22T18:07:42	START_TEST_CASE	Start 'tst_lockscreen_keyboard_input'	Test 'tst_lockscreen_keyboard_input' started (tst_lockscreen_keyboard_input)
+2025-04-22T18:07:43	PASS      	/home/vboxuser/GDMS-Final-Project/testSuites/suite_lockscreenTesting/tst_lockscreen_keyboard_input/test.py:10: Comparison	'Home' and 'Home' are equal
+2025-04-22T18:07:43	PASS      	/home/vboxuser/GDMS-Final-Project/testSuites/suite_lockscreenTesting/tst_lockscreen_keyboard_input/test.py:13: Comparison	'Screen is locked.' and 'Screen is locked.' are equal (Phone has successfully been locked.)
+2025-04-22T18:07:43	PASS      	/home/vboxuser/GDMS-Final-Project/testSuites/suite_lockscreenTesting/tst_lockscreen_keyboard_input/test.py:18: Comparison	'abcdefg' and 'abcdefg' are equal (Text in textfield correctly reflects user keyboard input.)
+2025-04-22T18:07:44	PASS      	/home/vboxuser/GDMS-Final-Project/testSuites/suite_lockscreenTesting/tst_lockscreen_keyboard_input/test.py:23: Comparison	'Screen is locked.' and 'Screen is locked.' are equal
+2025-04-22T18:07:45	PASS      	/home/vboxuser/GDMS-Final-Project/testSuites/suite_lockscreenTesting/tst_lockscreen_keyboard_input/test.py:28: Comparison	'1234' and '1234' are equal
+2025-04-22T18:07:45	PASS      	/home/vboxuser/GDMS-Final-Project/testSuites/suite_lockscreenTesting/tst_lockscreen_keyboard_input/test.py:32: Comparison	'Home' and 'Home' are equal
+2025-04-22T18:07:45	END_TEST_CASE	End 'tst_lockscreen_keyboard_input'	End of test 'tst_lockscreen_keyboard_input'
+2025-04-22T18:07:46	START_TEST_CASE	Start 'tst_lockscreen_modal'  	Test 'tst_lockscreen_modal' started (tst_lockscreen_modal)
+2025-04-22T18:07:47	PASS      	/home/vboxuser/GDMS-Final-Project/testSuites/suite_lockscreenTesting/tst_lockscreen_modal/test.py:16: Comparison	'True' and 'True' are equal (Modal appears correctly.)
+2025-04-22T18:07:47	PASS      	/home/vboxuser/GDMS-Final-Project/testSuites/suite_lockscreenTesting/tst_lockscreen_modal/test.py:17: Comparison	'Incorrect password.' and 'Incorrect password.' are equal (Incorrect password modal has correct text.)
+2025-04-22T18:07:47	PASS      	/home/vboxuser/GDMS-Final-Project/testSuites/suite_lockscreenTesting/tst_lockscreen_modal/test.py:18: Comparison	'True' and 'True' are equal (Testing that Ok button exists)
+2025-04-22T18:07:51	XFAIL     	/home/vboxuser/GDMS-Final-Project/testSuites/suite_lockscreenTesting/tst_lockscreen_modal/test.py:26: Modal did not automatically dismiss after 3 seconds.	
+2025-04-22T18:07:55	PASS      	/home/vboxuser/GDMS-Final-Project/testSuites/suite_lockscreenTesting/tst_lockscreen_modal/test.py:35: Comparison	'True' and 'True' are equal (Modal appears correctly.)
+2025-04-22T18:07:55	PASS      	/home/vboxuser/GDMS-Final-Project/testSuites/suite_lockscreenTesting/tst_lockscreen_modal/test.py:36: Comparison	'Correct password entered, returning to home.' and 'Correct password entered, returning to home.' are equal (Password correct modal has correct text.)
+2025-04-22T18:08:01	PASS      	/home/vboxuser/GDMS-Final-Project/testSuites/suite_lockscreenTesting/tst_lockscreen_modal/test.py:38: Comparison	'Home' and 'Home' are equal (Successfully returned to home screen after correct password was entered.)
+2025-04-22T18:08:01	END_TEST_CASE	End 'tst_lockscreen_modal'    	End of test 'tst_lockscreen_modal'
+2025-04-22T18:08:01	END       	End 'suite_lockscreenTesting' 	End of test 'suite_lockscreenTesting'
+*******************************************************
+Summary:
+Number of Test Cases:	   2
+Number of Tests:	  13
+Number of Errors:	   0
+Number of Fatals:	   0
+Number of Fails:	   0
+Number of Passes:	  13
+Number of Expected Fails:	   1
+Number of Unexpected Passes:	   0
+Number of Warnings:	   0
+*******************************************************
