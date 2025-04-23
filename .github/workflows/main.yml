@@ -34,6 +34,7 @@ jobs:
           cmake --build sampleApp/build
         
       - name: Set squish environment variables
+        working-directory: /home/vboxuser/
         run: |
           export SQUISH_PREFIX=/home/vboxuser/squish-for-qt-8.1.0
           export SQUISH_TESTCENTER_PREFIX=/home/vboxuser/testcenter-4.1.1-linux-x64
@@ -42,25 +43,29 @@ jobs:
 
       - name: Setup AUT
         run: |
-          startaut --port=9999 sampleAppl/build/appsampleApp &
+          /home/vboxuser/squish-for-qt-8.1.0/bin/startaut --port=9999 sampleApp/build/appsampleApp &
 
+      #echo "ALLOWED_HOSTS=*" > $SQUISH_PREFIX/etc/squishserverrc
+      #squishserver --config addAppPath sampleApp/build
+      #squishserver --config addAttachableAUT appsampleApp localhost:9999
       - name: Setup squishserver
+        working-directory: /home/vboxuser/
         run: |
-          echo "ALLOWED_HOSTS=*" > $SQUISH_PREFIX/etc/squishserverrc
-          squishserver --config addAppPath sampleApp/build
-          squishserver --config addAttachableAUT appsampleApp localhost:9999
-          squishserver --verbose --daemon
+          /home/vboxuser/squish-for-qt-8.1.0/bin/squishserver --verbose --daemon
 
       - name: Setup testcenter
+        working-directory: /home/vboxuser/
         run: |
-          testcenter --start
+          /home/vboxuser/testcenter-4.1.1-linux-x64/bin/testcenter start
           
       - name: Run testsuites
-        #run: |
-          #./run squishrunner bash script
+        run: |
+          chmod +x squishrunner_script.sh
+          ./squishrunner_script.sh
 
-      - name: Clean up
-        run: | 
-          testcenter stop
-          squishserver --stop
-          kill %1
+      #- name: Clean up
+        #run: | 
+          #testcenter stop
+          #squishserver --stop
+          #kill %1
+          
