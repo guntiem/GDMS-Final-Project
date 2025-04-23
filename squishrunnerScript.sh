@@ -1,0 +1,54 @@
+#!/bin/bash
+
+pass_or_fail=0
+squishrunner_path="/home/vboxuser/squish-for-qt-8.1.0/bin/squishrunner"
+testsuites_path="/home/vboxuser/GDMS-Final-Project/testSuites"
+testcenter_path="/home/vboxuser/testcenter-4.1.1-linux-x64/"
+
+for suite_path in $testsuites_path/suite_*/; do
+
+    suite_name=$(basename "$suite_path")
+    
+    #mkdir -p "testResults/${suite_name}Results"
+    "$squishrunner_path" --testsuite "$testsuites_path/$suite_name" --exitCodeOnFail 1 --reportgen xml3.4,"testResults/${suite_name}Results/"
+    
+    if [ $? -eq 0 ]; then
+        echo "${suite_name} executed successfully."
+    else
+        echo "${suite_name} failed."
+        pass_or_fail=1
+    fi
+
+    zip -r "testResults/${suite_name}Results.zip" "testResults/${suite_name}Results/"
+    
+    "$testcenter_path/bin/testcentercmd" --url=http://localhost:8800 --token=49_337cZ7PCLY37SmciZAUR9-7fK4tQVFLhGP-0ssmM upload sampleApp "testResults/${suite_name}Results.zip" 
+    
+done   
+  
+  
+  
+if [ $pass_or_fail -eq 0 ]; then
+    echo "All test suites passed!"
+else
+    echo "One or more test suites failed."
+fi
+
+exit $pass_or_fail     
+    
+    
+    
+    
+    
+    
+
+#"$squishrunner_path" --testsuite "$testsuites_path/suite_lockscreenTesting" --reportgen xml3.4,testResults/lockscreenTestingResults/
+#if [ $? -ne 0 ]; then
+#    echo "Test suite 1 failed."
+#    test_failed=1
+#else
+#    echo "Test suite 1 executed successfully."
+#fi
+
+#zip -r testResults/lockscreenTestingResults.zip testResults/lockscreenTestingResults
+#"$testcenter_path/bin/testcentercmd" --url=http://localhost:8800 --token=49_337cZ7PCLY37SmciZAUR9-7fK4tQVFLhGP-0ssmM upload sampleApp 'testResults/lockscreenTestingResults.zip'
+
