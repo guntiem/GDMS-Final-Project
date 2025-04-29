@@ -34,11 +34,6 @@ To run the application and tests successfully, ensure the following environment 
 
 ## Environment Setup
 
-1. Set up Ubuntu 24.04 OS
-2. Install Qt 
-   1. Offline Qhttps://www.qt.io/blog/qt-6.7.3-released
-3. Set up Tesseract
-
 ### Tesseract
 
 Image and text recognition in Squish uses the open-source OCR engine **Tesseract**. As Tesseract is the primary OCR engine for Squish and includes all the necessary engine libraries and language files, it became the engine of choice for this project to prototype.
