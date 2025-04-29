@@ -22,7 +22,7 @@ Image and text recognition in Squish uses the open-source OCR engine **Tesseract
 
 ### Prerequisites
 
-- Display card that allows GPU accelleration (ex. Ubuntu on Xorg, x11)
+- Display card that allows GPU acceleration (ex. Ubuntu on Xorg, x11)
     - Check current display server: 
     ```echo $XDG_SESSION_TYPE```
 
