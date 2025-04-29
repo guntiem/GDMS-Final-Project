@@ -202,6 +202,13 @@ These images will be the source of reference while creating your test cases. Aft
 
 ## Further Resources:
 
+**Qt6 Libraries** need to be downloaded into directory for tests to run, check setup_qt6.sh
+
+Loading Squish Qt toolkit support failed: libQt6Widgets.so.6: cannot open shared object file: No such file or directory
+![LD_LIBRARY_PATH](https://github.com/user-attachments/assets/c822e3d3-af94-4177-bd4e-6c075b127638)
+run: 
+- find / -name libQt6Qml.so.6 2>/dev/null
+
 * [Squish: Installing Tesseract](https://doc.qt.io/squish/ocr-and-installing-tesseract-for-squish.html)
 * [Squish: Image-based-testing example](https://doc.qt.io/squish/how-to-do-image-based-testing.html)
 * [Tesseract: official repository](https://github.com/tesseract-ocr/tesseract)
