@@ -31,7 +31,7 @@ To run the application and tests successfully, ensure the following environment 
 3. File/Folder Descriptions (TODO)
 4. [Notes\/Resources](#notes)
    * [OCR Implementation](#ocr-implementation)
-5. [Test Suite Automation Script]
+5. Test Suite Automation Script
 
 ## Environment Setup
 
@@ -177,7 +177,7 @@ These images will be the source of reference while creating your test cases. Aft
 The purpose of this script is to work alongside Squish Test Center to automate the execution of test scripts. The file 'automate_test_scripts.sh' will return a 0 if all tests run successfully, and a 1 if not. 
 This script uses Squishrunner to run all of the test suites and generate the test reports, to be sent to the Test Center.
 
-# Running the automated squish test bash script
+## Running the automated squish test bash script
 
 ### Start Qt app on local server:
 
@@ -198,7 +198,7 @@ This script uses Squishrunner to run all of the test suites and generate the tes
 - test results will be stored as .txt files
 
 
-# Environment related set up
+## Environment related set up
 
 - go to directory /path/to/squish-for-qt-8.0.0/bin
 
@@ -212,7 +212,7 @@ Make sure LD_LIBRARY is set correctly as well as AUT (read troubleshooting for h
 
 **All** test scripts should return to the 'home' page after finishing their test
 
-# Troubleshooting:
+## Troubleshooting:
 
 Loading Squish Qt toolkit support failed: libQt6Widgets.so.6: cannot open shared object file: No such file or directory
 
