@@ -214,8 +214,10 @@ Make sure LD_LIBRARY is set correctly as well as AUT (read troubleshooting for h
 
 ## Troubleshooting:
 
-Loading Squish Qt toolkit support failed: libQt6Widgets.so.6: cannot open shared object file: No such file or directory
+**Qt6 Libraries** need to be downloaded into directory for tests to run, check setup_qt6.sh
 
+Loading Squish Qt toolkit support failed: libQt6Widgets.so.6: cannot open shared object file: No such file or directory
+![LD_LIBRARY_PATH](https://github.com/user-attachments/assets/c822e3d3-af94-4177-bd4e-6c075b127638)
 run: 
 - find / -name libQt6Qml.so.6 2>/dev/null
 
