@@ -1,0 +1,7 @@
+<testconfig version="1.0">
+    <information>
+        <summary>Sliders Functionality</summary>
+        <description>These sliders should work through drag, and not any other type of clicks and this test case verifies that. </description>
+    </information>
+    <testsettings/>
+</testconfig>
