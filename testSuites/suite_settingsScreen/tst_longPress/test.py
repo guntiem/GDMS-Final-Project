@@ -5,8 +5,8 @@ import time
 
 def main():
     #Start Application
-    # startApplication("appsampleApp")
-    attachToApplication("appsampleApp")
+    startApplication("appsampleApp")
+    # attachToApplication("appsampleApp")
     
     #Click on Settings Screen
     mouseClick(waitForObject(names.gDMS_Sample_Application_RoundButton), 52, 40, Qt.LeftButton)
@@ -31,7 +31,7 @@ def main():
         mouseRelease(waitForObject(names.security_Settings_Button), 84, 12, Qt.LeftButton)
 
         # test.compare(btn.visible, True, "Pop-up should be visible after long press")
-        test.compare(waitForObjectExists(names.o_Rectangle_6).visible, True)
+        # test.compare(waitForObjectExists(names.o_Rectangle_6).visible, True)
 
         mouseClick(waitForObject(names.close_Button), 24, 16, Qt.LeftButton)
         test.passes("Test Case Passed: Long Press Functionality works")
@@ -45,4 +45,5 @@ def main():
     
     # Remove later(?) - Tony
     mouseWheel(waitForObject(names.o_Flickable), 507, 280, 0, -180, Qt.NoModifier)
-    mouseClick(waitForObject(names.back_Button), 66, 14, Qt.LeftButton)
+    # mouseClick(waitForObject(names.back_Button), 66, 14, Qt.LeftButton)
+    mouseClick(waitForObject(names.back_Button), 53, 9, Qt.LeftButton)

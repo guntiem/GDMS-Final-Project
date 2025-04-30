@@ -18,3 +18,4 @@ pink_Text = {"container": o_ScrollView, "text": "Pink", "type": "Text", "unnamed
 security_Settings_Button = {"checkable": False, "container": gDMS_Sample_Application_ScrollView, "text": "Security Settings", "type": "Button", "unnamed": 1, "visible": True}
 gDMS_Sample_Application_Overlay = {"container": gDMS_Sample_Application_QQuickWindowQmlImpl, "type": "Overlay", "unnamed": 1, "visible": True}
 close_Button = {"checkable": False, "container": gDMS_Sample_Application_Overlay, "text": "Close", "type": "Button", "unnamed": 1, "visible": True}
+back_Button = {"checkable": False, "container": gDMS_Sample_Application_ScrollView, "text": "Back", "type": "Button", "unnamed": 1, "visible": True}

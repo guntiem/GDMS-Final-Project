@@ -14,7 +14,7 @@ for suite_path in testSuites/suite_*/; do
     fi
 
     zip -r "testResults/${suite_name}Results.zip" "testResults/${suite_name}Results/"  
-    testcentercmd --url=http://localhost:8800 --token=49_337cZ7PCLY37SmciZAUR9-7fK4tQVFLhGP-0ssmM upload sampleApp "testResults/${suite_name}Results.zip"    
+    testcentercmd --url=http://$TESTCENTER_ADDRESS --token=49_337cZ7PCLY37SmciZAUR9-7fK4tQVFLhGP-0ssmM upload sampleApp "testResults/${suite_name}Results.zip"    
 done   
   
 if [ $pass_or_fail -eq 0 ]; then

@@ -40,6 +40,7 @@ def main():
     global SCREEN, TEXT_SECTION
     #=== APPLICATION GUI INTERACTION SETUP =========================================================================================
     startApplication("appsampleApp")
+    # attachToApplication("appsampleApp")
     
     # entering relevant App page...
     mouseClick(waitForObject(names.gDMS_Sample_Application_RoundButton), 46, 50, Qt.LeftButton)
@@ -109,7 +110,7 @@ def main():
     test.ocrTextPresent("FiFLFFIFF", { "tesseract": { "psm": 3 } });
     #===============================================================================================================================
     
-    closeWindow(names.gDMS_Sample_Application_QQuickWindowQmlImpl)
+    # closeWindow(names.gDMS_Sample_Application_QQuickWindowQmlImpl)
     
     
     

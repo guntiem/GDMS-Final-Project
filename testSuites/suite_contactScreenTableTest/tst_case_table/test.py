@@ -5,6 +5,7 @@ from squish import *
 def main():
     test.log("script actually started")  
     startApplication("appsampleApp")
+    # attachToApplication("appsampleApp")
     test.log("Navigating to Contacts")
 
     # Navigate to Contacts page (as before)
