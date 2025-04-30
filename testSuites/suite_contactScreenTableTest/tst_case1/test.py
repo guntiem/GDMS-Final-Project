@@ -16,8 +16,11 @@ def main():
     col_count = table.myColCount  
     if col_count == 4:
         test.log("Table has 4 columns as expected")
+        mouseClick(waitForObject(names.gDMS_Sample_Application_Back_Button), 41, 7, Qt.LeftButton)
     else:
         test.fail("Table column count is not as expected. Found: " + str(col_count))
+        mouseClick(waitForObject(names.gDMS_Sample_Application_Back_Button), 41, 7, Qt.LeftButton)
+    
         
 
 
