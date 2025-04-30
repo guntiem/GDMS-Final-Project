@@ -13,7 +13,7 @@ jobs:
              
       - name: Execute
         run: |
-          set -a; source .env.paths; set +a
+          set -a; source /home/tony/Desktop/final_deliverable/GDMS-Final-Project/.env.paths; set +a
           cmake -S sampleApp -B sampleApp/build -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH:PATH=$SQUISH_GCC_PATH
           cmake --build sampleApp/build
           chmod +x automated_test_script.sh
