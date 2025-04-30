@@ -4,6 +4,7 @@ import names
 
 def main():
     startApplication("appsampleApp")
+    # attachToApplication("appsampleApp")
     
     setWindowState(waitForObject(names.gDMS_Sample_Application_QQuickWindowQmlImpl), WindowState.Maximize)
     snooze(1)

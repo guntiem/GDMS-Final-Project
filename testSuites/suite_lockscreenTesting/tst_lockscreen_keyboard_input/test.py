@@ -4,8 +4,8 @@ import names
 
 
 def main():
-    # startApplication("appsampleApp")
-    attachToApplication("appsampleApp")
+    startApplication("appsampleApp")
+    # attachToApplication("appsampleApp")
     # Compare home text to confirm user is on home page
     test.compare(str(waitForObjectExists(names.gDMS_Sample_Application_Home_Text).text), "Home")
     mouseClick(waitForObject(names.gDMS_Sample_Application_RoundButton), 37, 46, Qt.LeftButton)

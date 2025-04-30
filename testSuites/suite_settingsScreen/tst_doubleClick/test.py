@@ -4,8 +4,8 @@ import names
 
 def main():
     # Start the application
-    # startApplication("appsampleApp")
-    attachToApplication("appSampleApp")
+    startApplication("appsampleApp")
+    # attachToApplication("appSampleApp")
     
     # Click on the settings screen
     mouseClick(waitForObject(names.gDMS_Sample_Application_RoundButton), 48, 30, Qt.LeftButton)
@@ -40,4 +40,5 @@ def main():
 
     # Remove later(?) - Tony
     mouseWheel(waitForObject(names.o_Flickable), 507, 280, 0, -180, Qt.NoModifier)
-    mouseClick(waitForObject(names.back_Button), 66, 14, Qt.LeftButton)
+    # mouseClick(waitForObject(names.back_Button), 66, 14, Qt.LeftButton)
+    mouseClick(waitForObject(names.back_Button), 53, 9, Qt.LeftButton)

@@ -4,6 +4,7 @@ import names
 
 def main():
     startApplication("appsampleApp")
+    # attachToApplication("appsampleApp")
     
     # Navigate to phone call screen
     setWindowState(waitForObject(names.gDMS_Sample_Application_QQuickWindowQmlImpl), WindowState.Maximize)
@@ -12,6 +13,7 @@ def main():
     
     # End every call in the list view
     mouseClick(waitForObject(names.phoneDelegate_End_Button), 68, 47, Qt.LeftButton)
+    snooze(1)
     mouseClick(waitForObject(names.phoneDelegate_End_Button), 68, 47, Qt.LeftButton)
     mouseClick(waitForObject(names.phoneDelegate_End_Button), 68, 47, Qt.LeftButton)
     mouseClick(waitForObject(names.phoneDelegate_End_Button), 68, 47, Qt.LeftButton)

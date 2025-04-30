@@ -35,6 +35,7 @@ def main():
     
     #=== SETUP =========================================================================================================================
     startApplication("appsampleApp")
+    # attachToApplication("appsampleApp")
     
     # entering OCR testing page...
     mouseClick(waitForObject(names.gDMS_Sample_Application_RoundButton), 46, 50, Qt.LeftButton)
@@ -102,4 +103,4 @@ def main():
     #===================================================================================================================================
     
     
-    closeWindow(SCREEN)
+    # closeWindow(SCREEN)

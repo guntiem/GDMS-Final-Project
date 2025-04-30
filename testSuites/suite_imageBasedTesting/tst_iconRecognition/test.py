@@ -13,6 +13,7 @@ import names
 def main():
     #=== APPLICATION GUI INTERACTION SETUP =========================================================================================
     startApplication("appsampleApp")
+    # attachToApplication("appsampleApp")
     
     # entering relevant app page...
     mouseClick(waitForObject(names.gDMS_Sample_Application_RoundButton), 46, 50, Qt.LeftButton)
@@ -74,5 +75,5 @@ def main():
     test.imagePresent('mutedIcon', {'tolerant': True, 'multiscale': True, 'threshold': 99.5},)
     #===============================================================================================================================
     
-    closeWindow(names.gDMS_Sample_Application_QQuickWindowQmlImpl)
+    # closeWindow(names.gDMS_Sample_Application_QQuickWindowQmlImpl)
 

@@ -50,6 +50,7 @@ def main():
     #=== SETUP ==================================================================================================================
     # start application
     startApplication("appsampleApp")
+    # attachToApplication("appsampleApp")
     
     # entering relevant app page...
     mouseClick(waitForObject(names.gDMS_Sample_Application_RoundButton), 46, 50, Qt.LeftButton)
@@ -161,5 +162,5 @@ def main():
     #============================================================================================================================
     
     
-    closeWindow(names.gDMS_Sample_Application_QQuickWindowQmlImpl)
+    # closeWindow(names.gDMS_Sample_Application_QQuickWindowQmlImpl)
 
